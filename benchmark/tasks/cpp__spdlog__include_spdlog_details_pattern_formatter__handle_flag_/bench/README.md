@@ -1,0 +1,2 @@
+Line: flag TAB width TAB side TAB msg fields. S: every known flag (except P) and many unknown characters, twice each + 100 random; M: 20000; L: 100000 cases with longer names/payloads.
+The private member is reached with -fno-access-control. Check mode: handle_flag_ on a pattern_formatter(utc, no eol) with empty list, then format() a fixed message and hash the text and colour range. Time mode: only handle_flag_ plus clearing the list.

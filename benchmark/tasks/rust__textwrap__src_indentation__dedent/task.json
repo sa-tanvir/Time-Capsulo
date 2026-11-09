@@ -1,0 +1,44 @@
+{
+  "task_id": "rust__textwrap__src_indentation__dedent",
+  "repo": "rust__textwrap",
+  "language": "rust",
+  "repo_url": "https://github.com/mgeisler/textwrap",
+  "tag": "0.11.0",
+  "commit_sha": "abcd618beae3f74841032aa5b53c1086b0a57ca2",
+  "release_date": "2018-12-10",
+  "license": "MIT",
+  "file": "src/indentation.rs",
+  "symbol": "dedent s : & str",
+  "name": "dedent",
+  "start_line": 80,
+  "end_line": 135,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 42,
+  "ccn": 15,
+  "n_covering_tests": 10,
+  "covering_tests": [
+    "textwrap::indentation::tests::dedent_blank_line",
+    "textwrap::indentation::tests::dedent_empty",
+    "textwrap::indentation::tests::dedent_empty_line",
+    "textwrap::indentation::tests::dedent_mixed_tabbed_whitespace",
+    "textwrap::indentation::tests::dedent_mixed_tabbed_whitespace2",
+    "textwrap::indentation::tests::dedent_mixed_whitespace",
+    "textwrap::indentation::tests::dedent_multi_line",
+    "textwrap::indentation::tests::dedent_preserve_no_terminating_newline",
+    "textwrap::indentation::tests::dedent_tabbed_whitespace",
+    "textwrap::indentation::tests::dedent_whitespace_line"
+  ],
+  "bench": {
+    "driver": "bench/driver.rs",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -rf /tmp/w && cp -a /w /tmp/w && find /tmp/w/src -name '*.rs' -exec touch {} + && cat {task}/bench/driver.rs >> /tmp/w/src/indentation.rs",
+    "run_cmd": "cd /tmp/w && TC_SIZE={size} TC_REPEAT={repeat} TC_MODE={mode} TC_TASK={task} cargo test --release --lib indentation::tc_bench::tc_bench -- --nocapture --exact 2>&1"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

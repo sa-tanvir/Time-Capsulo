@@ -1,0 +1,28 @@
+{
+  "image": "tc-rust",
+  "license": "MIT OR Apache-2.0",
+  "src_globs": [
+    "src/**/*.rs"
+  ],
+  "exclude_globs": [
+    "**/tests/**",
+    "**/benches/**",
+    "**/examples/**",
+    "src/testdata/**"
+  ],
+  "setup_cmd": "sed -i '/^  \"bench\"/d; /^  \"regex-capi\"/d; /^  \"regex-debug\"/d; /^  \"regex-syntax\"/d; s/aho-corasick = \"0.6.0\"/aho-corasick = \"=0.6.4\"/; s/memchr = \"2.0.0\"/memchr = \"=2.0.1\"/; s/thread_local = \"0.3.2\"/thread_local = \"=0.3.5\"/; s/utf8-ranges = \"1.0.0\"/utf8-ranges = \"=1.0.0\"/; s/lazy_static = \"1\"/lazy_static = \"=1.0.0\"/; s/quickcheck = { version = \"0.6\"/quickcheck = { version = \"=0.6.2\"/; s/rand = \"0.4\"/rand = \"=0.4.2\"/' Cargo.toml && if ! grep -q '^libc = \"=0.2.40\"$' Cargo.toml; then sed -i '/^\\[dev-dependencies\\]/a libc = \"=0.2.40\"' Cargo.toml; fi && cargo fetch --locked",
+  "setup_network": true,
+  "build_cmd": "find src -name '*.rs' -exec touch {} +",
+  "test_cmd": "cargo test --lib --tests --no-fail-fast 2>&1",
+  "result_format": "cargo",
+  "env": {
+    "CARGO_TARGET_DIR": "/target",
+    "RUSTFLAGS": "--cap-lints=warn"
+  },
+  "cache_volumes": {
+    "tc-cache-cargo": "/usr/local/cargo/registry",
+    "tc-target-regex": "/target"
+  },
+  "notes": "rust:1.40 (tc-rust). Default features only. Root library unit tests and the eight explicitly declared integration-test targets; auxiliary workspace crates, benches, examples and doc-tests are excluded. During setup, only in the disposable working copy, the four auxiliary workspace member lines are removed and dependency constraints are made exact before lockfile generation: the separate regex-benchmark crate pulls libpcre/tar/xattr dependencies unrelated to the library test oracle and incompatible with the era toolchain. The pristine repo is unchanged. Dependencies are pinned to versions available around the 2018-05-02 release and buildable by Rust 1.40: aho-corasick 0.6.4, memchr 2.0.1, thread_local 0.3.5, utf8-ranges 1.0.0, lazy_static 1.0.0, quickcheck 0.6.2, rand 0.4.2 and libc 0.2.40. RUSTFLAGS=--cap-lints=warn prevents the crate's test-only deny(warnings) from turning Rust 1.40 deprecation warnings for valid 2018 syntax into build errors. build_cmd touches src/*.rs so cargo never reuses a stale build after restore. Reproducibility: the exact dependency versions are fixed by the shipped lockfile benchmark/lockfiles/rust__regex.Cargo.lock, which `tc.py setup` copies into the working copy; setup_cmd then only downloads them (cargo fetch --locked). `setup_cmd_generate` is the original command that produced that lockfile in Oct 2026 (it resolves unpinned dependencies against the live registry, so it is kept for provenance only).",
+  "setup_cmd_generate": "sed -i '/^  \"bench\"/d; /^  \"regex-capi\"/d; /^  \"regex-debug\"/d; /^  \"regex-syntax\"/d; s/aho-corasick = \"0.6.0\"/aho-corasick = \"=0.6.4\"/; s/memchr = \"2.0.0\"/memchr = \"=2.0.1\"/; s/thread_local = \"0.3.2\"/thread_local = \"=0.3.5\"/; s/utf8-ranges = \"1.0.0\"/utf8-ranges = \"=1.0.0\"/; s/lazy_static = \"1\"/lazy_static = \"=1.0.0\"/; s/quickcheck = { version = \"0.6\"/quickcheck = { version = \"=0.6.2\"/; s/rand = \"0.4\"/rand = \"=0.4.2\"/' Cargo.toml && if ! grep -q '^libc = \"=0.2.40\"$' Cargo.toml; then sed -i '/^\\[dev-dependencies\\]/a libc = \"=0.2.40\"' Cargo.toml; fi && rm -f Cargo.lock && cargo generate-lockfile && cargo fetch"
+}

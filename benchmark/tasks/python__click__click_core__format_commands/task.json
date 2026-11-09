@@ -1,0 +1,40 @@
+{
+  "task_id": "python__click__click_core__format_commands",
+  "repo": "python__click",
+  "language": "python",
+  "repo_url": "https://github.com/pallets/click",
+  "tag": "7.0",
+  "commit_sha": "a936b99212c69a36a2cc2828252b2c4280c0c88c",
+  "release_date": "2018-09-26",
+  "license": "BSD-3-Clause",
+  "file": "click/core.py",
+  "symbol": "format_commands( self , ctx , formatter )",
+  "name": "format_commands",
+  "start_line": 1056,
+  "end_line": 1082,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 18,
+  "ccn": 8,
+  "n_covering_tests": 6,
+  "covering_tests": [
+    "tests.test_basic::test_basic_group",
+    "tests.test_basic::test_hidden_command",
+    "tests.test_basic::test_hidden_group",
+    "tests.test_chain::test_chaining_help",
+    "tests.test_commands::test_auto_shorthelp",
+    "tests.test_commands::test_group_with_args"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

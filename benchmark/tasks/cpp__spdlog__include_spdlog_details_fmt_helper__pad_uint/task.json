@@ -1,0 +1,51 @@
+{
+  "task_id": "cpp__spdlog__include_spdlog_details_fmt_helper__pad_uint",
+  "repo": "cpp__spdlog",
+  "language": "cpp",
+  "repo_url": "https://github.com/gabime/spdlog",
+  "tag": "v1.3.1",
+  "commit_sha": "a7148b718ea2fabb8387cb90aee9bf448da63e65",
+  "release_date": "2019-01-18",
+  "license": "MIT",
+  "file": "include/spdlog/details/fmt_helper.h",
+  "symbol": "spdlog::details::fmt_helper::pad_uint( T n , unsigned int width , fmt :: basic_memory_buffer<char,Buffer_Size> & dest)",
+  "name": "spdlog::details::fmt_helper::pad_uint",
+  "start_line": 77,
+  "end_line": 87,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 11,
+  "ccn": 2,
+  "n_covering_tests": 17,
+  "covering_tests": [
+    "global::async_error_handler",
+    "global::clone-default-formatter",
+    "global::clone-default-formatter2",
+    "global::custom_error_handler",
+    "global::daily_logger with custom calculator",
+    "global::daily_logger with dateonly calculator",
+    "global::message_counter",
+    "global::pad3",
+    "global::pad6",
+    "global::pad9",
+    "global::rotating_file_logger1",
+    "global::rotating_file_logger2",
+    "global::to_file",
+    "global::to_file multi-workers",
+    "global::to_hex",
+    "global::to_hex_no_delimiter",
+    "global::to_hex_upper"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(find /w/include/spdlog -name '*.h' | sort | xargs cat {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -fno-access-control -DSPDLOG_ENABLE_MESSAGE_COUNTER -I/w/include {task}/bench/driver.cpp -o /build/drv/$H.tmp -pthread && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

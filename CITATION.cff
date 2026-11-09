@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use the Time Capsulo benchmark, please cite it as below."
+title: "Time Capsulo: A Sustainability Benchmark for Human and AI-Generated Code"
+version: "1.0"
+doi: "10.17632/fc6bbvd95n.1"
+date-released: "2026-10-21"
+authors:
+  - family-names: "Ahmed"
+    given-names: "Sheikh Tanvir"
+    affiliation: "United International University"
+  - family-names: "Islam"
+    given-names: "Md. Motaharul"
+    affiliation: "United International University"
+  - family-names: "Ahmed"
+    given-names: "Syed Ishtiaque"
+    affiliation: "University of Toronto"
+  - family-names: "Hassan"
+    given-names: "Mohammad Mehedi"
+    affiliation: "King Saud University"
+type: dataset
+license:
+  - CC-BY-4.0
+  - MIT
+keywords:
+  - benchmark
+  - code generation
+  - large language models
+  - software sustainability
+  - energy efficiency

@@ -1,0 +1,3 @@
+First line: an escaped HTML document (40/300/600 elements) used only in check mode. Then one selector per line: random compounds with combinators (descendant, >, +, ~, comma), attribute and pseudo selectors, S also has malformed ones; L has comma lists of 150-400 alternatives and chains up to 250 parts.
+Check mode digests Evaluator.toString() (object hash codes stripped) plus the indices of matching elements, or the parse exception; time mode only parses (QueryParser.parse(String) calls the instance method parse() under test).
+TCBench.java is in the target's package, compiled against target/classes into /tmp/tcb; /w is never modified.

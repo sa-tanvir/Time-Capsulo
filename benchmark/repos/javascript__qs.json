@@ -1,0 +1,13 @@
+{
+  "image": "tc-javascript",
+  "license": "BSD-3-Clause",
+  "src_globs": [
+    "lib/*.js"
+  ],
+  "exclude_globs": [],
+  "setup_cmd": "sh /opt/tc/npm-install-isolated.sh 2019-11-08 tape@^4.11.0 iconv-lite@^0.4.24 qs-iconv@^1.0.4 safer-buffer@^2.1.2 for-each@^0.3.3 has-symbols@^1.0.0 object-inspect@^1.6.0",
+  "setup_network": true,
+  "test_cmd": "ls -la lib >/dev/null; node /opt/tc/tape-tap.js test/index.js 2>&1",
+  "result_format": "tap",
+  "notes": "Runs the tape suite (npm 'tests-only') through /opt/tc/tape-tap.js, which reports one TAP line per tape test instead of per assertion. Only the devDependencies the tests require are installed (lint/coverage/browserify tooling omitted). The leading 'ls -la lib' refreshes Docker Desktop (macOS virtiofs) attribute caches: without it a container started right after the harness rewrites a source file with a larger size sometimes sees the old, shorter length (truncated file -> SyntaxError)."
+}

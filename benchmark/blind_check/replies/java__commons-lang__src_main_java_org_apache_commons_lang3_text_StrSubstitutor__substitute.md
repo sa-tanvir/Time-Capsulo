@@ -1,0 +1,110 @@
+```java
+private int substitute(final StrBuilder buf, final int offset, final int length, List<String> priorVariables) {
+    final StrMatcher pfxMatcher = getVariablePrefixMatcher();
+    final StrMatcher suffMatcher = getVariableSuffixMatcher();
+    final char escape = getEscapeChar();
+    final StrMatcher valueDelimMatcher = getValueDelimiterMatcher();
+    final boolean substitutionInVariablesEnabled = isEnableSubstitutionInVariables();
+
+    final boolean top = priorVariables == null;
+    boolean altered = false;
+    int lengthChange = 0;
+    char[] chars = buf.buffer;
+    int bufEnd = offset + length;
+    int pos = offset;
+    while (pos < bufEnd) {
+        final int startMatchLen = pfxMatcher.isMatch(chars, pos, offset, bufEnd);
+        if (startMatchLen == 0) {
+            pos++;
+        } else if (pos > offset && chars[pos - 1] == escape) {
+            if (isPreserveEscapes()) {
+                pos++;
+                continue;
+            }
+            buf.deleteCharAt(pos - 1);
+            chars = buf.buffer;
+            lengthChange--;
+            altered = true;
+            bufEnd--;
+        } else {
+            final int startPos = pos;
+            pos += startMatchLen;
+            int nestedVarCount = 0;
+            while (pos < bufEnd) {
+                if (substitutionInVariablesEnabled) {
+                    final int nestedLen = pfxMatcher.isMatch(chars, pos, offset, bufEnd);
+                    if (nestedLen != 0) {
+                        nestedVarCount++;
+                        pos += nestedLen;
+                        continue;
+                    }
+                }
+                final int endMatchLen = suffMatcher.isMatch(chars, pos, offset, bufEnd);
+                if (endMatchLen == 0) {
+                    pos++;
+                    continue;
+                }
+                if (nestedVarCount == 0) {
+                    String varNameExpr = new String(chars, startPos + startMatchLen, pos - startPos - startMatchLen);
+                    if (substitutionInVariablesEnabled) {
+                        final StrBuilder bufName = new StrBuilder(varNameExpr);
+                        substitute(bufName, 0, bufName.length());
+                        varNameExpr = bufName.toString();
+                    }
+                    pos += endMatchLen;
+                    final int endPos = pos;
+
+                    String varName = varNameExpr;
+                    String varDefaultValue = null;
+                    if (valueDelimMatcher != null) {
+                        final char[] varNameExprChars = varNameExpr.toCharArray();
+                        for (int i = 0; i < varNameExprChars.length; i++) {
+                            if (!substitutionInVariablesEnabled
+                                    && pfxMatcher.isMatch(varNameExprChars, i, i, varNameExprChars.length) != 0) {
+                                break;
+                            }
+                            final int delimLen = valueDelimMatcher.isMatch(varNameExprChars, i);
+                            if (delimLen != 0) {
+                                varName = varNameExpr.substring(0, i);
+                                varDefaultValue = varNameExpr.substring(i + delimLen);
+                                break;
+                            }
+                        }
+                    }
+
+                    if (priorVariables == null) {
+                        priorVariables = new ArrayList<>();
+                        priorVariables.add(new String(chars, offset, length));
+                    }
+                    checkCyclicSubstitution(varName, priorVariables);
+                    priorVariables.add(varName);
+
+                    String varValue = resolveVariable(varName, buf, startPos, endPos);
+                    if (varValue == null) {
+                        varValue = varDefaultValue;
+                    }
+                    if (varValue != null) {
+                        final int varLen = varValue.length();
+                        buf.replace(startPos, endPos, varValue);
+                        altered = true;
+                        int change = substitute(buf, startPos, varLen, priorVariables);
+                        change = change + varLen - (endPos - startPos);
+                        pos += change;
+                        bufEnd += change;
+                        lengthChange += change;
+                        chars = buf.buffer;
+                    }
+                    priorVariables.remove(priorVariables.size() - 1);
+                    break;
+                }
+                nestedVarCount--;
+                pos += endMatchLen;
+            }
+        }
+    }
+    if (top) {
+        return altered ? 1 : 0;
+    }
+    return lengthChange;
+}
+```

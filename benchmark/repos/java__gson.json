@@ -1,0 +1,20 @@
+{
+  "image": "tc-java",
+  "license": "Apache-2.0",
+  "src_globs": [
+    "gson/src/main/java/**/*.java"
+  ],
+  "exclude_globs": [
+    "**/src/test/**"
+  ],
+  "setup_cmd": "mkdir -p /tmp/gen && sed 's/${project.version}/2.8.6/' gson/src/main/java-templates/com/google/gson/internal/GsonBuildConfig.java > /tmp/gen/GsonBuildConfig.java && mkdir -p gson/target/classes && javac -nowarn -source 1.7 -target 1.7 -encoding UTF-8 -d gson/target/classes $(find gson/src/main/java -name '*.java' ! -name module-info.java) /tmp/gen/GsonBuildConfig.java 2>&1 | grep -v '^Note\\|warning' ; mvn -B -Dmaven.main.skip=true -Dmaven.compiler.source=1.7 -Dmaven.compiler.target=1.7 -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true -Dmaven.test.failure.ignore=true -Dmaven.test.skip=false test",
+  "setup_network": true,
+  "test_cmd": "rm -rf gson/target/surefire-reports; mvn -B -Dmaven.main.skip=true -Dmaven.compiler.source=1.7 -Dmaven.compiler.target=1.7 -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true -Dmaven.test.failure.ignore=true -Dsurefire.timeout=900 -DtrimStackTrace=true test 2>&1 | tail -n 200; cp gson/target/surefire-reports/TEST-*.xml /out/ 2>/dev/null; ls /out/TEST-*.xml >/dev/null 2>&1",
+  "result_format": "junit",
+  "cache_volumes": {
+    "tc-cache-m2": "/root/.m2"
+  },
+  "notes": "Image tc-java (JDK8). Multi-module: gson library in gson/; Maven run from root, reports under gson/target/surefire-reports. The pom's default-compile needs JDK9 (module-info, release 9), so main classes are compiled with javac (build_cmd, module-info.java excluded) and Maven runs with -Dmaven.main.skip=true; source files untouched. GsonBuildConfig (templating plugin) is generated in /tmp/gen with version 2.8.6. Compile errors: the test command exits non-zero when no surefire reports were produced (so the harness labels the answer compile_error, not failed_tests); the build_cmd deletes gson/target/classes first and fails when javac fails, so stale classes can never be tested.",
+  "scan_test_cmd": "rm -rf gson/target/surefire-reports; mvn -B -Dmaven.main.skip=true -Dmaven.compiler.source=1.7 -Dmaven.compiler.target=1.7 -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true -Dmaven.test.failure.ignore=true -Dsurefire.timeout=900 -DtrimStackTrace=true -DfailIfNoTests=false -Dtest='{stem}*Test' test 2>&1 | tail -n 200; cp gson/target/surefire-reports/TEST-*.xml /out/ 2>/dev/null; ls /out/TEST-*.xml >/dev/null 2>&1",
+  "build_cmd": "rm -rf gson/target/classes && mkdir -p /tmp/gen && sed 's/${project.version}/2.8.6/' gson/src/main/java-templates/com/google/gson/internal/GsonBuildConfig.java > /tmp/gen/GsonBuildConfig.java && mkdir -p gson/target/classes && javac -nowarn -source 1.7 -target 1.7 -encoding UTF-8 -d gson/target/classes $(find gson/src/main/java -name '*.java' ! -name module-info.java) /tmp/gen/GsonBuildConfig.java > /tmp/javac.log 2>&1 || { grep -v '^Note' /tmp/javac.log | head -n 100; exit 1; }"
+}

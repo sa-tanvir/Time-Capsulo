@@ -1,0 +1,41 @@
+{
+  "task_id": "python__more-itertools__more_itertools_recipes__unique_everseen",
+  "repo": "python__more-itertools",
+  "language": "python",
+  "repo_url": "https://github.com/more-itertools/more-itertools",
+  "tag": "v7.2.0",
+  "commit_sha": "99884cbd7f784478d7305ffdfb1a39f08d49fd4c",
+  "release_date": "2019-07-20",
+  "license": "MIT",
+  "file": "more_itertools/recipes.py",
+  "symbol": "unique_everseen( iterable , key = None )",
+  "name": "unique_everseen",
+  "start_line": 346,
+  "end_line": 397,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 26,
+  "ccn": 10,
+  "n_covering_tests": 7,
+  "covering_tests": [
+    "more_itertools.tests.test_more.DistinctCombinationsTests::test_basic",
+    "more_itertools.tests.test_more.DistinctCombinationsTests::test_distinct",
+    "more_itertools.tests.test_more.DistinctCombinationsTests::test_empty",
+    "more_itertools.tests.test_recipes.UniqueEverseenTests::test_custom_key",
+    "more_itertools.tests.test_recipes.UniqueEverseenTests::test_everseen",
+    "more_itertools.tests.test_recipes.UniqueEverseenTests::test_unhashable",
+    "more_itertools.tests.test_recipes.UniqueEverseenTests::test_unhashable_key"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

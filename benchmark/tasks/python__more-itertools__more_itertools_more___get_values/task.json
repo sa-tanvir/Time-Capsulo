@@ -1,0 +1,37 @@
+{
+  "task_id": "python__more-itertools__more_itertools_more___get_values",
+  "repo": "python__more-itertools",
+  "language": "python",
+  "repo_url": "https://github.com/more-itertools/more-itertools",
+  "tag": "v7.2.0",
+  "commit_sha": "99884cbd7f784478d7305ffdfb1a39f08d49fd4c",
+  "release_date": "2019-07-20",
+  "license": "MIT",
+  "file": "more_itertools/more.py",
+  "symbol": "_get_values( self , value )",
+  "name": "_get_values",
+  "start_line": 807,
+  "end_line": 831,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 16,
+  "ccn": 7,
+  "n_covering_tests": 3,
+  "covering_tests": [
+    "more_itertools.tests.test_more.BucketTests::test_basic",
+    "more_itertools.tests.test_more.BucketTests::test_in",
+    "more_itertools.tests.test_more.BucketTests::test_validator"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

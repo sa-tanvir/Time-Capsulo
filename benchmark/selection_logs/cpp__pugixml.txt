@@ -1,0 +1,10 @@
+src/pugixml.cpp::utf8_decoder::process@1623
+src/pugixml.cpp::parse_declaration_encoding@1918
+src/pugixml.cpp::text_output_escaped@3906
+src/pugixml.cpp::sort@7457
+src/pugixml.cpp::unique@7371
+src/pugixml.cpp::convert_number_to_string@8227
+src/pugixml.cpp::string_value@7897
+src/pugixml.cpp::strconv_comment@2599
+src/pugixml.cpp::string_to_integer@4489
+src/pugixml.cpp::strconv_escape@2446

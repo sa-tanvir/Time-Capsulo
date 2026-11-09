@@ -1,0 +1,29 @@
+{
+  "image": "tc-rust",
+  "license": "MIT OR Apache-2.0",
+  "src_globs": [
+    "src/**/*.rs"
+  ],
+  "exclude_globs": [
+    "**/tests/**",
+    "**/benches/**",
+    "**/examples/**",
+    "src/tests.rs",
+    "src/write/encoder_tests.rs"
+  ],
+  "setup_cmd": "cargo fetch --locked",
+  "setup_network": true,
+  "build_cmd": "find src -name '*.rs' -exec touch {} +",
+  "test_cmd": "cargo test --lib --tests --no-fail-fast 2>&1",
+  "result_format": "cargo",
+  "env": {
+    "CARGO_TARGET_DIR": "/target",
+    "RUSTFLAGS": "--cap-lints=warn"
+  },
+  "cache_volumes": {
+    "tc-cache-cargo": "/usr/local/cargo/registry",
+    "tc-target-base64": "/target"
+  },
+  "notes": "rust:1.40 (tc-rust). Default features (std). Lib unit tests + tests/*.rs; benches and doc-tests excluded (--lib --tests; harness cargo parser cannot parse doc-test names). Lockfile generated at setup; dev-dependency tree (criterion 0.3, rand 0.6, doc-comment) pinned to ~Oct-2019 versions buildable by rustc 1.40: criterion 0.3.0, criterion-plot 0.4.0, rayon 1.2.0, rayon-core 1.6.0, serde/serde_derive 1.0.101, serde_json 1.0.41, csv 1.1.1, bstr 0.2.8, clap 2.33.0, libc 0.2.65, syn 1.0.5, quote 1.0.2, proc-macro2 1.0.6, memchr 2.2.1, etc. (see setup_cmd). crossbeam-deque 0.7.4 / crossbeam-epoch 0.8.2 (2020) kept because 0.7.1 is unavailable. The library itself has no dependencies. build_cmd touches src so cargo never reuses a stale build after restore. RUSTFLAGS=--cap-lints=warn: lib.rs has #![deny(warnings, unused_results, ...)], which would turn the unused-parameter warnings of any stub/sabotaged body (and harmless lint differences in model code) into build errors; tests and behaviour are unaffected. Reproducibility: the exact dependency versions are fixed by the shipped lockfile benchmark/lockfiles/rust__rust-base64.Cargo.lock, which `tc.py setup` copies into the working copy; setup_cmd then only downloads them (cargo fetch --locked). `setup_cmd_generate` is the original command that produced that lockfile in Oct 2026 (it resolves unpinned dependencies against the live registry, so it is kept for provenance only).",
+  "setup_cmd_generate": "cargo generate-lockfile && cargo update -p criterion --precise 0.3.0 && cargo update -p criterion-plot --precise 0.4.0 && cargo update -p rayon --precise 1.2.0 && cargo update -p rayon-core --precise 1.6.0 && cargo update -p memoffset --precise 0.5.1 && cargo update -p num_cpus --precise 1.10.1 && cargo update -p serde_json --precise 1.0.41 && cargo update -p serde --precise 1.0.101 && cargo update -p serde_derive --precise 1.0.101 && cargo update -p csv --precise 1.1.1 && cargo update -p bstr --precise 0.2.8 && cargo update -p csv-core --precise 0.1.6 && cargo update -p clap --precise 2.33.0 && cargo update -p walkdir --precise 2.2.9 && cargo update -p tinytemplate --precise 1.0.2 && cargo update -p itertools:0.8.2 --precise 0.8.0 && cargo update -p num-traits --precise 0.2.8 && cargo update -p libc --precise 0.2.65 && cargo update -p ryu --precise 1.0.2 && cargo update -p memchr --precise 2.2.1 && cargo update -p atty --precise 0.2.13 && cargo update -p unicode-width --precise 0.1.6 && cargo update -p bitflags --precise 1.2.1 && cargo update -p same-file --precise 1.0.5 && cargo update -p winapi-util --precise 0.1.2 && cargo update -p lazy_static --precise 1.4.0 && cargo update -p either --precise 1.5.3 && cargo update -p getrandom --precise 0.1.12 && cargo update -p syn --precise 1.0.5 && cargo update -p quote --precise 1.0.2 && cargo update -p proc-macro2 --precise 1.0.6 && cargo update -p unicode-xid --precise 0.2.0 && cargo update -p cast --precise 0.2.2 && cargo update -p scopeguard --precise 1.0.0 && cargo fetch"
+}

@@ -1,0 +1,42 @@
+{
+  "task_id": "javascript__qs__lib_utils__arrayToObject",
+  "repo": "javascript__qs",
+  "language": "javascript",
+  "repo_url": "https://github.com/ljharb/qs",
+  "tag": "v6.9.1",
+  "commit_sha": "7b368004723b8d11d4d237ff0479b9edcfb41449",
+  "release_date": "2019-11-08",
+  "license": "BSD-3-Clause",
+  "file": "lib/utils.js",
+  "symbol": "arrayToObject ( source , options )",
+  "name": "arrayToObject",
+  "start_line": 34,
+  "end_line": 43,
+  "end_suffix": ";\n",
+  "indent": "",
+  "nloc": 9,
+  "ccn": 5,
+  "n_covering_tests": 8,
+  "covering_tests": [
+    "merge()",
+    "merge() > avoids invoking array setters unnecessarily",
+    "parse()",
+    "parse() > allows overriding array limit",
+    "parse() > can return null objects",
+    "parse() > correctly prunes undefined values when converting an array to an object",
+    "parse() > transforms arrays to objects",
+    "parse() > transforms arrays to objects (dot notation)"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "ls -la /w/lib >/dev/null; node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

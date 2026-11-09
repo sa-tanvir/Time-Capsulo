@@ -1,0 +1,21 @@
+{
+  "image": "tc-cpp",
+  "license": "MIT",
+  "src_globs": [
+    "include/nlohmann/**/*.hpp"
+  ],
+  "exclude_globs": [
+    "test/**",
+    "single_include/**",
+    "benchmarks/**",
+    "third_party/**",
+    "doc/**"
+  ],
+  "build_cmd": "find /build -name '*.o' -size 0 -delete 2>/dev/null; tc-sync-mtimes /build/.tc_md5 include test && ( [ -f /build/CMakeCache.txt ] || cmake -S /w -B /build -DCMAKE_BUILD_TYPE=None -DCMAKE_CXX_FLAGS=-O1 -DJSON_BuildTests=ON -DJSON_Install=OFF -DJSON_MultipleHeaders=ON >/dev/null ) && rm -f /build/test/test-* && cmake --build /build -- -j4 -k 2>&1 | grep -E 'error' | head -40; [ \"$(find /build/test -maxdepth 1 -name 'test-*' -type f -perm -u+x | wc -l)\" -ge 42 ]",
+  "test_cmd": "cd /w && for t in /build/test/test-*; do n=$(basename $t); timeout 300 $t -r=xml -o=/tmp/$n.xml >/dev/null 2>&1; echo \"$n rc=$?\"; tc-doctest2junit /tmp/$n.xml /out/$n.xml $n; done",
+  "result_format": "junit",
+  "cache_volumes": {
+    "tc-build-json": "/build"
+  },
+  "notes": "nlohmann/json 3.7.2. Library sources are the split headers include/nlohmann/**; CMake is configured with JSON_MultipleHeaders=ON so that the tests compile against include/ (CMake default would use the amalgamated single_include/nlohmann/json.hpp, which is excluded from candidates). JSON_BuildTests=ON, JSON_Install=OFF, -O1 without -g. One doctest binary per unit-*.cpp (42); build_cmd deletes the binaries first, uses -k and fails unless all 42 exist, so a header compile error is a compile_error (not failed_tests). Each binary runs from /w (tests read test/data/...), doctest XML reporter, converted to JUnit with tc-doctest2junit (test id '<binary>.<suite>::<case>'); doctest tests marked skip (roundtrip tests) stay skipped, as in the default ctest label."
+}

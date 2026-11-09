@@ -1,0 +1,52 @@
+{
+  "task_id": "javascript__validator.js__src_lib_isIP__isIP",
+  "repo": "javascript__validator.js",
+  "language": "javascript",
+  "repo_url": "https://github.com/validatorjs/validator.js",
+  "tag": "12.1.0",
+  "commit_sha": "0d204da14f640fd2a8bf1874b6995128ff28409d",
+  "release_date": "2019-11-21",
+  "license": "MIT",
+  "file": "src/lib/isIP.js",
+  "symbol": "isIP ( str , version = '' )",
+  "name": "isIP",
+  "start_line": 34,
+  "end_line": 113,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 61,
+  "ccn": 24,
+  "n_covering_tests": 18,
+  "covering_tests": [
+    "Validators::should allow regular expressions in the host blacklist",
+    "Validators::should allow regular expressions in the host whitelist",
+    "Validators::should allow rejecting urls containing authentication information",
+    "Validators::should let users specify a host blacklist",
+    "Validators::should let users specify a host whitelist",
+    "Validators::should let users specify whether URLs require a protocol",
+    "Validators::should not validate protocol relative URLs when require protocol is true",
+    "Validators::should validate IP addresses",
+    "Validators::should validate URLs",
+    "Validators::should validate URLs that do not have a TLD",
+    "Validators::should validate URLs with a trailing dot option",
+    "Validators::should validate URLs with any protocol",
+    "Validators::should validate URLs with custom protocols",
+    "Validators::should validate URLs with underscores",
+    "Validators::should validate email addresses with allowed IPs",
+    "Validators::should validate file URLs without a host",
+    "Validators::should validate isIPRange",
+    "Validators::should validate protocol relative URLs"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "ls -la /w/src/lib >/dev/null; node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

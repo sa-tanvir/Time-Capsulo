@@ -1,0 +1,37 @@
+{
+  "task_id": "javascript__moment__src_lib_moment_min_max__pickBy",
+  "repo": "javascript__moment",
+  "language": "javascript",
+  "repo_url": "https://github.com/moment/moment",
+  "tag": "2.24.0",
+  "commit_sha": "96d0d6791ab495859d09a868803d31a55c917de1",
+  "release_date": "2019-01-22",
+  "license": "MIT",
+  "file": "src/lib/moment/min-max.js",
+  "symbol": "pickBy ( fn , moments )",
+  "name": "pickBy",
+  "start_line": 35,
+  "end_line": 50,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 16,
+  "ccn": 7,
+  "n_covering_tests": 3,
+  "covering_tests": [
+    "invalid :: invalid operations",
+    "min max :: max",
+    "min max :: min"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "ls -laR /w/src/lib >/dev/null; node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

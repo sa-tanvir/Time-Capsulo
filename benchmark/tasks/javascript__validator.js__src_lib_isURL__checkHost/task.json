@@ -1,0 +1,38 @@
+{
+  "task_id": "javascript__validator.js__src_lib_isURL__checkHost",
+  "repo": "javascript__validator.js",
+  "language": "javascript",
+  "repo_url": "https://github.com/validatorjs/validator.js",
+  "tag": "12.1.0",
+  "commit_sha": "0d204da14f640fd2a8bf1874b6995128ff28409d",
+  "release_date": "2019-11-21",
+  "license": "MIT",
+  "file": "src/lib/isURL.js",
+  "symbol": "checkHost ( host , matches )",
+  "name": "checkHost",
+  "start_line": 24,
+  "end_line": 32,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 9,
+  "ccn": 5,
+  "n_covering_tests": 4,
+  "covering_tests": [
+    "Validators::should allow regular expressions in the host blacklist",
+    "Validators::should allow regular expressions in the host whitelist",
+    "Validators::should let users specify a host blacklist",
+    "Validators::should let users specify a host whitelist"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "ls -la /w/src/lib >/dev/null; node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

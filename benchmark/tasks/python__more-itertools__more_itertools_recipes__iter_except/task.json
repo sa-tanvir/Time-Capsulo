@@ -1,0 +1,38 @@
+{
+  "task_id": "python__more-itertools__more_itertools_recipes__iter_except",
+  "repo": "python__more-itertools",
+  "language": "python",
+  "repo_url": "https://github.com/more-itertools/more-itertools",
+  "tag": "v7.2.0",
+  "commit_sha": "99884cbd7f784478d7305ffdfb1a39f08d49fd4c",
+  "release_date": "2019-07-20",
+  "license": "MIT",
+  "file": "more_itertools/recipes.py",
+  "symbol": "iter_except( func , exception , first = None )",
+  "name": "iter_except",
+  "start_line": 412,
+  "end_line": 430,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 8,
+  "ccn": 4,
+  "n_covering_tests": 4,
+  "covering_tests": [
+    "more_itertools.tests.test_recipes.IterExceptTests::test_exact_exception",
+    "more_itertools.tests.test_recipes.IterExceptTests::test_first",
+    "more_itertools.tests.test_recipes.IterExceptTests::test_generic_exception",
+    "more_itertools.tests.test_recipes.IterExceptTests::test_uncaught_exception_is_raised"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

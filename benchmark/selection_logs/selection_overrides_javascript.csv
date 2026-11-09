@@ -1,0 +1,7 @@
+repo_key,candidate_id,action,reason
+javascript__lodash,lodash.js::wrapper@5152,skip,"nested closure 'function wrapper()' returned by createHybrid; it reads ~10 enclosing createHybrid parameters (bitmask, partials, holders, arity, ...) so it cannot be specified or called in isolation"
+javascript__lodash,lodash.js::isEmpty@11479,add,"next-ranked eligible candidate (ccn=14) replacing wrapper@5152"
+javascript__validator.js,src/lib/isByteLength.js::isByteLength@4,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+javascript__validator.js,src/lib/isInt.js::isInt@6,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+javascript__validator.js,src/lib/isLength.js::isLength@4,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+javascript__validator.js,src/lib/util/toString.js::toString@1,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)

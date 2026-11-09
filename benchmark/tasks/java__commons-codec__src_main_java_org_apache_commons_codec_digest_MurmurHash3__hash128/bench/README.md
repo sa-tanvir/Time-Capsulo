@@ -1,0 +1,2 @@
+Calls MurmurHash3.hash128(data, offset, length, seed) on pseudo-random byte arrays generated in the driver. Lines: length offset seed dataSeed. S covers every length 0..49 (all tail cases), M ~10-20 KB, L ~0.5-1 MB.
+The driver is TCBench.java in the same package as the target; it compiles against target/classes (build output goes to /tmp/tcb). It reads /task/bench/workload_<size>.txt produced by gen_workload.py.

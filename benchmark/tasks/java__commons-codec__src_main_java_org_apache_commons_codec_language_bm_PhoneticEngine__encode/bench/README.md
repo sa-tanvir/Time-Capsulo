@@ -1,0 +1,2 @@
+Builds PhoneticEngine instances (nameType, ruleType, concat) and calls encode(word, languageSet) on generated names (language sets from Lang.guessLanguages, or ANY_LANGUAGE). Rule tables are warmed up outside the timed region. Word length grows 10x per size.
+The driver is TCBench.java in the same package as the target; it compiles against target/classes (build output goes to /tmp/tcb). It reads /task/bench/workload_<size>.txt produced by gen_workload.py.

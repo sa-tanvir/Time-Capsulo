@@ -1,0 +1,20 @@
+{
+  "image": "tc-cpp",
+  "license": "MIT",
+  "src_globs": [
+    "include/fmt/*.h",
+    "src/*.cc"
+  ],
+  "exclude_globs": [
+    "test/**",
+    "doc/**",
+    "support/**"
+  ],
+  "build_cmd": "find /build -name '*.o' -size 0 -delete 2>/dev/null; tc-sync-mtimes /build/.tc_md5 include src test && ( [ -f /build/CMakeCache.txt ] || cmake -S /w -B /build -DCMAKE_BUILD_TYPE=None -DCMAKE_CXX_FLAGS=-O1 -DFMT_TEST=ON -DFMT_DOC=OFF -DFMT_INSTALL=OFF >/dev/null ) && rm -f /build/bin/*-test && cmake --build /build -- -j4 -k 2>&1 | grep -E 'error' | head -40; [ \"$(ls /build/bin/*-test 2>/dev/null | wc -l)\" -ge 17 ]",
+  "test_cmd": "cd /build && for t in bin/*-test; do timeout 120 $t --gtest_output=xml:/out/$(basename $t).xml >/dev/null 2>&1; echo \"$t rc=$?\"; done",
+  "result_format": "junit",
+  "cache_volumes": {
+    "tc-build-fmt": "/build"
+  },
+  "notes": "CMake configured once into /build (named volume); tests build at -O1 without debug info. Every gtest binary in /build/bin runs separately with its own junit XML, so a crash only loses that binary's results. Test binaries are deleted before each build and the build uses -k, so a test binary that fails to compile produces no results (counted as failing) instead of a stale binary being run; build_cmd fails unless all 17 test binaries were built, so a compile or link error anywhere is reported as compile_error (with -k alone, a header-only-test binary could survive and give a 'failed_tests' label). tc-sync-mtimes (baked into tc-cpp) touches sources whose content changed, because the harness restores files with their old mtimes."
+}

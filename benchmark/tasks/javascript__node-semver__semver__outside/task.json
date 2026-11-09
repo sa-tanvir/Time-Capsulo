@@ -1,0 +1,39 @@
+{
+  "task_id": "javascript__node-semver__semver__outside",
+  "repo": "javascript__node-semver",
+  "language": "javascript",
+  "repo_url": "https://github.com/npm/node-semver",
+  "tag": "v6.3.0",
+  "commit_sha": "0eeceecfba490d136eb3ccae3a8dc118a28565a0",
+  "release_date": "2019-07-24",
+  "license": "ISC",
+  "file": "semver.js",
+  "symbol": "outside ( version , range , hilo , options )",
+  "name": "outside",
+  "start_line": 1465,
+  "end_line": 1532,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 42,
+  "ccn": 12,
+  "n_covering_tests": 5,
+  "covering_tests": [
+    "test/gtr.js :: gtr tests",
+    "test/gtr.js :: negative gtr tests",
+    "test/index.js :: outside with bad hilo throws",
+    "test/ltr.js :: ltr tests",
+    "test/ltr.js :: negative ltr tests"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

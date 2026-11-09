@@ -1,0 +1,26 @@
+{
+  "image": "tc-rust",
+  "license": "MIT",
+  "src_globs": [
+    "src/**/*.rs"
+  ],
+  "exclude_globs": [
+    "**/tests/**",
+    "**/benches/**",
+    "**/examples/**"
+  ],
+  "setup_cmd": "cargo fetch --locked",
+  "setup_network": true,
+  "build_cmd": "find src -name '*.rs' -exec touch {} +",
+  "test_cmd": "cargo test --lib --tests --no-fail-fast 2>&1",
+  "result_format": "cargo",
+  "env": {
+    "CARGO_TARGET_DIR": "/target"
+  },
+  "cache_volumes": {
+    "tc-cache-cargo": "/usr/local/cargo/registry",
+    "tc-target-textwrap": "/target"
+  },
+  "notes": "rust:1.40 (tc-rust). Default features only (hyphenation/term_size optional, off). Lockfile generated at setup; deps too new for rustc 1.40 pinned to Dec-2018 versions: unicode-width 0.1.5, regex 1.1.0, regex-syntax 0.6.4, serde/serde_derive 1.0.82, libc 0.2.45, unicode-normalization 0.1.7, unicode-bidi 0.3.4, either 1.5.0, num-traits 0.2.6, memchr 2.1.2 (the last ones only via dev-deps). Doc-tests excluded (--lib --tests): harness cargo parser cannot parse doc-test names. build_cmd touches src/*.rs so cargo never reuses a stale build after restore. Reproducibility: the exact dependency versions are fixed by the shipped lockfile benchmark/lockfiles/rust__textwrap.Cargo.lock, which `tc.py setup` copies into the working copy; setup_cmd then only downloads them (cargo fetch --locked). `setup_cmd_generate` is the original command that produced that lockfile in Oct 2026 (it resolves unpinned dependencies against the live registry, so it is kept for provenance only).",
+  "setup_cmd_generate": "cargo generate-lockfile && cargo update -p unicode-width --precise 0.1.5 && cargo update -p regex --precise 1.1.0 && cargo update -p serde --precise 1.0.82 && cargo update -p libc --precise 0.2.45 && cargo update -p unicode-normalization --precise 0.1.7 && cargo update -p unicode-bidi --precise 0.3.4 && cargo update -p either --precise 1.5.0 && cargo update -p num-traits --precise 0.2.6 && cargo update -p memchr --precise 2.1.2 && cargo update -p serde_derive --precise 1.0.82 && cargo update -p regex-syntax --precise 0.6.4 && cargo fetch"
+}

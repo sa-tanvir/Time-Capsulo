@@ -1,0 +1,37 @@
+{
+  "task_id": "go__gjson__gjson__parseSubSelectors",
+  "repo": "go__gjson",
+  "language": "go",
+  "repo_url": "https://github.com/tidwall/gjson",
+  "tag": "v1.3.5",
+  "commit_sha": "5c2e4b382486589dad7478130a364ee2fa6a068b",
+  "release_date": "2019-11-18",
+  "license": "MIT",
+  "file": "gjson.go",
+  "symbol": "parseSubSelectors path string",
+  "name": "parseSubSelectors",
+  "start_line": 1728,
+  "end_line": 1785,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 47,
+  "ccn": 21,
+  "n_covering_tests": 3,
+  "covering_tests": [
+    "github.com/tidwall/gjson::TestIssue141",
+    "github.com/tidwall/gjson::TestModifiersInMultipaths",
+    "github.com/tidwall/gjson::TestSubSelectors"
+  ],
+  "bench": {
+    "driver": "bench/driver_test.go",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cp {task}/bench/driver_test.go /w/zz_tcbench_test.go && cd /w && go test -c -o /tmp/tcbench.test . ; rc=$?; rm -f zz_tcbench_test.go; exit $rc",
+    "run_cmd": "cd /w && TC_SIZE={size} TC_REPEAT={repeat} TC_MODE={mode} TC_TASK={task} /tmp/tcbench.test -test.run '^TestTCBench$' -test.count=1 -test.v"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

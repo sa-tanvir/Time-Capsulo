@@ -1,0 +1,52 @@
+{
+  "task_id": "python__requests__requests_models___encode_files",
+  "repo": "python__requests",
+  "language": "python",
+  "repo_url": "https://github.com/psf/requests",
+  "tag": "v2.22.0",
+  "commit_sha": "aeda65bbe57ac5edbcc2d80db85d010befb7d419",
+  "release_date": "2019-05-16",
+  "license": "Apache-2.0",
+  "file": "requests/models.py",
+  "symbol": "_encode_files( files , data )",
+  "name": "_encode_files",
+  "start_line": 110,
+  "end_line": 171,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 44,
+  "ccn": 21,
+  "n_covering_tests": 18,
+  "covering_tests": [
+    "tests.test_requests.TestRequests::test_POSTBIN_GET_POST_FILES",
+    "tests.test_requests.TestRequests::test_POSTBIN_GET_POST_FILES_WITH_DATA",
+    "tests.test_requests.TestRequests::test_can_send_file_object_with_non_string_filename",
+    "tests.test_requests.TestRequests::test_can_send_objects_with_files[files2]",
+    "tests.test_requests.TestRequests::test_can_send_objects_with_files[foo0]",
+    "tests.test_requests.TestRequests::test_can_send_objects_with_files[foo1]",
+    "tests.test_requests.TestRequests::test_conflicting_post_params",
+    "tests.test_requests.TestRequests::test_custom_content_type",
+    "tests.test_requests.TestRequests::test_different_encodings_dont_break_post",
+    "tests.test_requests.TestRequests::test_invalid_files_input",
+    "tests.test_requests.TestRequests::test_prepared_request_with_file_is_pickleable",
+    "tests.test_requests.TestRequests::test_unicode_method_name",
+    "tests.test_requests.TestRequests::test_unicode_method_name_with_request_object",
+    "tests.test_requests.TestRequests::test_unicode_multipart_post[data0]",
+    "tests.test_requests.TestRequests::test_unicode_multipart_post[data1]",
+    "tests.test_requests.TestRequests::test_unicode_multipart_post[data2]",
+    "tests.test_requests.TestRequests::test_unicode_multipart_post[data3]",
+    "tests.test_requests.TestRequests::test_unicode_multipart_post_fieldnames"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w:/w/.deps python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

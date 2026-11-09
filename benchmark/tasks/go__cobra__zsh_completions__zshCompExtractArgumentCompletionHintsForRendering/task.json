@@ -1,0 +1,51 @@
+{
+  "task_id": "go__cobra__zsh_completions__zshCompExtractArgumentCompletionHintsForRendering",
+  "repo": "go__cobra",
+  "language": "go",
+  "repo_url": "https://github.com/spf13/cobra",
+  "tag": "v0.0.5",
+  "commit_sha": "f2b07da1e2c38d5f12845a4f607e2e1018cbb1f5",
+  "release_date": "2019-06-07",
+  "license": "Apache-2.0",
+  "file": "zsh_completions.go",
+  "symbol": "zshCompExtractArgumentCompletionHintsForRendering c * Command",
+  "name": "zshCompExtractArgumentCompletionHintsForRendering",
+  "start_line": 168,
+  "end_line": 195,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 28,
+  "ccn": 7,
+  "n_covering_tests": 17,
+  "covering_tests": [
+    "github.com/spf13/cobra::TestGenZshCompletion",
+    "github.com/spf13/cobra::TestGenZshCompletion/argument_completion_for_file_with_and_without_patterns",
+    "github.com/spf13/cobra::TestGenZshCompletion/argument_completion_for_words_with_spaces",
+    "github.com/spf13/cobra::TestGenZshCompletion/argument_completion_when_command_has_ValidArgs_and_no_annotation_for_argument_at_argPosition_1",
+    "github.com/spf13/cobra::TestGenZshCompletion/argument_completion_when_command_has_ValidArgs_and_no_annotation_for_argument_completion",
+    "github.com/spf13/cobra::TestGenZshCompletion/argument_zsh_completion_for_words",
+    "github.com/spf13/cobra::TestGenZshCompletion/command_with_subcommands_and_flags_with_values",
+    "github.com/spf13/cobra::TestGenZshCompletion/directory_completion_for_flag",
+    "github.com/spf13/cobra::TestGenZshCompletion/filename_completion_with_and_without_globs",
+    "github.com/spf13/cobra::TestGenZshCompletion/flag_description_with_single_quote_(')_shouldn't_break_quotes_in_completion_file",
+    "github.com/spf13/cobra::TestGenZshCompletion/flags_with_both_long_and_short_flags",
+    "github.com/spf13/cobra::TestGenZshCompletion/repeated_variables_both_with_and_without_value",
+    "github.com/spf13/cobra::TestGenZshCompletion/simple_command",
+    "github.com/spf13/cobra::TestGenZshCompletion/zsh_generation_should_run_on_root_command",
+    "github.com/spf13/cobra::TestGenZshCompletionHidden",
+    "github.com/spf13/cobra::TestGenZshCompletionHidden/hidden_commands",
+    "github.com/spf13/cobra::TestGenZshCompletionHidden/hidden_flags"
+  ],
+  "bench": {
+    "driver": "bench/driver_test.go",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cp {task}/bench/driver_test.go /w/zz_tcbench_test.go && cd /w && go test -c -o /tmp/tcbench.test . ; rc=$?; rm -f zz_tcbench_test.go; exit $rc",
+    "run_cmd": "cd /w && TC_SIZE={size} TC_REPEAT={repeat} TC_MODE={mode} TC_TASK={task} /tmp/tcbench.test -test.run '^TestTCBench$' -test.count=1 -test.v"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

@@ -1,0 +1,42 @@
+{
+  "task_id": "java__commons-lang__src_main_java_org_apache_commons_lang3_StringUtils__splitWorker",
+  "repo": "java__commons-lang",
+  "language": "java",
+  "repo_url": "https://github.com/apache/commons-lang",
+  "tag": "commons-lang-3.9",
+  "commit_sha": "abb39c22c0e538fff03ea4e53d78ee60c6c08092",
+  "release_date": "2019-04-11",
+  "license": "Apache-2.0",
+  "file": "src/main/java/org/apache/commons/lang3/StringUtils.java",
+  "symbol": "StringUtils::splitWorker( final String str , final String separatorChars , final int max , final boolean preserveAllTokens)",
+  "name": "StringUtils::splitWorker",
+  "start_line": 3660,
+  "end_line": 3743,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 77,
+  "ccn": 23,
+  "n_covering_tests": 8,
+  "covering_tests": [
+    "org.apache.commons.lang3.StringUtilsTest::testSplitByWholeSeparatorPreserveAllTokens_StringString",
+    "org.apache.commons.lang3.StringUtilsTest::testSplitByWholeSeparatorPreserveAllTokens_StringStringInt",
+    "org.apache.commons.lang3.StringUtilsTest::testSplitByWholeString_StringStringBoolean",
+    "org.apache.commons.lang3.StringUtilsTest::testSplitByWholeString_StringStringBooleanInt",
+    "org.apache.commons.lang3.StringUtilsTest::testSplitPreserveAllTokens_String",
+    "org.apache.commons.lang3.StringUtilsTest::testSplitPreserveAllTokens_StringString_StringStringInt",
+    "org.apache.commons.lang3.StringUtilsTest::testSplit_String",
+    "org.apache.commons.lang3.StringUtilsTest::testSplit_StringString_StringStringInt"
+  ],
+  "bench": {
+    "driver": "bench/TCBench.java",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cd /w && mvn -B -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true compile",
+    "run_cmd": "cd /w && rm -rf /tmp/tcb && mkdir -p /tmp/tcb && javac -cp target/classes -d /tmp/tcb {task}/bench/TCBench.java && java -cp target/classes:/tmp/tcb org.apache.commons.lang3.TCBench {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

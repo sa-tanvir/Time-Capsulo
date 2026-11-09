@@ -1,0 +1,37 @@
+{
+  "task_id": "java__commons-text__src_main_java_org_apache_commons_text_diff_StringsComparator__getMiddleSnake",
+  "repo": "java__commons-text",
+  "language": "java",
+  "repo_url": "https://github.com/apache/commons-text",
+  "tag": "commons-text-1.8",
+  "commit_sha": "b63df8d66e8306b2608c16be3661248348e78a2f",
+  "release_date": "2019-08-31",
+  "license": "Apache-2.0",
+  "file": "src/main/java/org/apache/commons/text/diff/StringsComparator.java",
+  "symbol": "StringsComparator::getMiddleSnake( final int start1 , final int end1 , final int start2 , final int end2)",
+  "name": "StringsComparator::getMiddleSnake",
+  "start_line": 183,
+  "end_line": 254,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 55,
+  "ccn": 27,
+  "n_covering_tests": 3,
+  "covering_tests": [
+    "org.apache.commons.text.diff.StringsComparatorTest::testExecution",
+    "org.apache.commons.text.diff.StringsComparatorTest::testLength",
+    "org.apache.commons.text.diff.StringsComparatorTest::testLongestCommonSubsequence"
+  ],
+  "bench": {
+    "driver": "bench/TCBench.java",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cd /w && mvn -B -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true compile",
+    "run_cmd": "cd /w && rm -rf /tmp/tcb && mkdir -p /tmp/tcb && javac -cp target/classes:/root/.m2/repository/org/apache/commons/commons-lang3/3.9/commons-lang3-3.9.jar -d /tmp/tcb {task}/bench/TCBench.java && java -cp target/classes:/root/.m2/repository/org/apache/commons/commons-lang3/3.9/commons-lang3-3.9.jar:/tmp/tcb org.apache.commons.text.diff.TCBench {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

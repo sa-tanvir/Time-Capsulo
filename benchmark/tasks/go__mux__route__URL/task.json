@@ -1,0 +1,40 @@
+{
+  "task_id": "go__mux__route__URL",
+  "repo": "go__mux",
+  "language": "go",
+  "repo_url": "https://github.com/gorilla/mux",
+  "tag": "v1.7.0",
+  "commit_sha": "a7962380ca08b5a188038c69871b8d3fbdf31e89",
+  "release_date": "2019-01-25",
+  "license": "BSD-3-Clause",
+  "file": "route.go",
+  "symbol": "(r*Route)URL pairs ... string",
+  "name": "URL",
+  "start_line": 507,
+  "end_line": 544,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 38,
+  "ccn": 10,
+  "n_covering_tests": 6,
+  "covering_tests": [
+    "github.com/gorilla/mux::TestQueries/Queries_route,_match",
+    "github.com/gorilla/mux::TestSchemeHostPath/Host_and_Path_route,_match",
+    "github.com/gorilla/mux::TestSchemes/Schemes_route,_default_scheme,_match_http,_build_http",
+    "github.com/gorilla/mux::TestSubRouter/#00",
+    "github.com/gorilla/mux::TestSubRouting",
+    "github.com/gorilla/mux::TestUrlBuilding"
+  ],
+  "bench": {
+    "driver": "bench/driver_test.go",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cp {task}/bench/driver_test.go /w/zz_tcbench_test.go && cd /w && go test -c -o /tmp/tcbench.test . ; rc=$?; rm -f zz_tcbench_test.go; exit $rc",
+    "run_cmd": "cd /w && TC_SIZE={size} TC_REPEAT={repeat} TC_MODE={mode} TC_TASK={task} /tmp/tcbench.test -test.run '^TestTCBench$' -test.count=1 -test.v"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

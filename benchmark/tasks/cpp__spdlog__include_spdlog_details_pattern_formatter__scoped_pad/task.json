@@ -1,0 +1,50 @@
+{
+  "task_id": "cpp__spdlog__include_spdlog_details_pattern_formatter__scoped_pad",
+  "repo": "cpp__spdlog",
+  "language": "cpp",
+  "repo_url": "https://github.com/gabime/spdlog",
+  "tag": "v1.3.1",
+  "commit_sha": "a7148b718ea2fabb8387cb90aee9bf448da63e65",
+  "release_date": "2019-01-18",
+  "license": "MIT",
+  "file": "include/spdlog/details/pattern_formatter.h",
+  "symbol": "spdlog::details::scoped_pad::scoped_pad( size_t wrapped_size , padding_info & padinfo , fmt :: memory_buffer & dest)",
+  "name": "spdlog::details::scoped_pad::scoped_pad",
+  "start_line": 56,
+  "end_line": 80,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 23,
+  "ccn": 4,
+  "n_covering_tests": 16,
+  "covering_tests": [
+    "global::center_padded_short",
+    "global::clone-formatter",
+    "global::clone-formatter-2",
+    "global::date MM/DD/YY",
+    "global::left_padded_huge",
+    "global::left_padded_max",
+    "global::left_padded_short",
+    "global::level_center_padded",
+    "global::level_left_padded",
+    "global::level_right_padded",
+    "global::message_counter",
+    "global::right_padded_short",
+    "global::short level",
+    "global::short level_center_padded",
+    "global::short level_left_padded",
+    "global::short level_right_padded"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(find /w/include/spdlog -name '*.h' | sort | xargs cat {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -fno-access-control -DSPDLOG_ENABLE_MESSAGE_COUNTER -I/w/include {task}/bench/driver.cpp -o /build/drv/$H.tmp -pthread && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

@@ -1,0 +1,49 @@
+{
+  "task_id": "cpp__double-conversion__double_conversion_bignum__AssignPowerUInt16",
+  "repo": "cpp__double-conversion",
+  "language": "cpp",
+  "repo_url": "https://github.com/google/double-conversion",
+  "tag": "v3.1.5",
+  "commit_sha": "5fa81e88ef24e735b4283b8f7454dc59693ac1fc",
+  "release_date": "2019-05-26",
+  "license": "BSD-3-Clause",
+  "file": "double-conversion/bignum.cc",
+  "symbol": "double_conversion::Bignum::AssignPowerUInt16( uint16_t base , int power_exponent)",
+  "name": "double_conversion::Bignum::AssignPowerUInt16",
+  "start_line": 412,
+  "end_line": 483,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 55,
+  "ccn": 12,
+  "n_covering_tests": 15,
+  "covering_tests": [
+    "test-bignum-dtoa/BignumDtoaGayFixed",
+    "test-bignum-dtoa/BignumDtoaGayPrecision",
+    "test-bignum-dtoa/BignumDtoaGayShortest",
+    "test-bignum-dtoa/BignumDtoaGayShortestSingle",
+    "test-bignum-dtoa/BignumDtoaShortestVariousFloats",
+    "test-bignum-dtoa/BignumDtoaVariousDoubles",
+    "test-bignum/AssignPowerUInt16",
+    "test-conversions/DoubleToExponential",
+    "test-conversions/DoubleToFixed",
+    "test-conversions/DoubleToPrecision",
+    "test-conversions/DoubleToStringJavaScript",
+    "test-dtoa/DtoaGayPrecision",
+    "test-dtoa/DtoaGayShortest",
+    "test-dtoa/DtoaGayShortestSingle",
+    "test-dtoa/DtoaVariousDoubles"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(cat /w/double-conversion/*.cc /w/double-conversion/*.h {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -DNDEBUG -I/w {task}/bench/driver.cpp $(ls /w/double-conversion/*.cc | grep -v '/bignum.cc$') -o /build/drv/$H.tmp && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

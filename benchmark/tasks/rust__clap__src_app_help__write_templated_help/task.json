@@ -1,0 +1,41 @@
+{
+  "task_id": "rust__clap__src_app_help__write_templated_help",
+  "repo": "rust__clap",
+  "language": "rust",
+  "repo_url": "https://github.com/clap-rs/clap",
+  "tag": "v2.30.0",
+  "commit_sha": "ebe14558e65e961f4340e2e74ec4eaa5f566e440",
+  "release_date": "2018-02-14",
+  "license": "MIT",
+  "file": "src/app/help.rs",
+  "symbol": "write_templated_help & mut self , parser : & Parser , template : & str",
+  "name": "write_templated_help",
+  "start_line": 882,
+  "end_line": 991,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 101,
+  "ccn": 22,
+  "n_covering_tests": 7,
+  "covering_tests": [
+    "help::ripgrep_usage_using_templates",
+    "template_help::custom_template",
+    "template_help::template_author_version",
+    "template_help::template_empty",
+    "template_help::template_notag",
+    "template_help::template_unknowntag",
+    "template_help::with_template"
+  ],
+  "bench": {
+    "driver": "bench/driver.rs",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -rf /tmp/w && cp -a /w /tmp/w && find /tmp/w/src -name '*.rs' -exec touch {} + && cat {task}/bench/driver.rs >> /tmp/w/src/app/help.rs",
+    "run_cmd": "cd /tmp/w && TC_SIZE={size} TC_REPEAT={repeat} TC_MODE={mode} TC_TASK={task} cargo test --release --lib app::help::tc_bench::tc_bench -- --nocapture --exact 2>&1"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-19"
+}

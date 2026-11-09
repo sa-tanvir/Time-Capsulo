@@ -1,0 +1,52 @@
+{
+  "task_id": "python__click__click_bashcomplete__get_choices",
+  "repo": "python__click",
+  "language": "python",
+  "repo_url": "https://github.com/pallets/click",
+  "tag": "7.0",
+  "commit_sha": "a936b99212c69a36a2cc2828252b2c4280c0c88c",
+  "release_date": "2018-09-26",
+  "license": "BSD-3-Clause",
+  "file": "click/_bashcomplete.py",
+  "symbol": "get_choices( cli , prog_name , args , incomplete )",
+  "name": "get_choices",
+  "start_line": 222,
+  "end_line": 265,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 27,
+  "ccn": 18,
+  "n_covering_tests": 18,
+  "covering_tests": [
+    "tests.test_bashcomplete::test_argument_choice",
+    "tests.test_bashcomplete::test_boolean_flag",
+    "tests.test_bashcomplete::test_boolean_flag_choice",
+    "tests.test_bashcomplete::test_chained_multi",
+    "tests.test_bashcomplete::test_chaining",
+    "tests.test_bashcomplete::test_hidden",
+    "tests.test_bashcomplete::test_long_chain",
+    "tests.test_bashcomplete::test_long_chain_choice",
+    "tests.test_bashcomplete::test_multi_option",
+    "tests.test_bashcomplete::test_multi_option_choice",
+    "tests.test_bashcomplete::test_multi_value_option",
+    "tests.test_bashcomplete::test_multi_value_option_choice",
+    "tests.test_bashcomplete::test_option_and_arg_choice",
+    "tests.test_bashcomplete::test_option_choice",
+    "tests.test_bashcomplete::test_single_command",
+    "tests.test_bashcomplete::test_small_chain",
+    "tests.test_bashcomplete::test_variadic_argument_choice",
+    "tests.test_bashcomplete::test_variadic_argument_complete"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

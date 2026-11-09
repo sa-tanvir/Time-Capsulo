@@ -1,0 +1,52 @@
+{
+  "task_id": "java__commons-lang__src_main_java_org_apache_commons_lang3_time_DurationFormatUtils__lexx",
+  "repo": "java__commons-lang",
+  "language": "java",
+  "repo_url": "https://github.com/apache/commons-lang",
+  "tag": "commons-lang-3.9",
+  "commit_sha": "abb39c22c0e538fff03ea4e53d78ee60c6c08092",
+  "release_date": "2019-04-11",
+  "license": "Apache-2.0",
+  "file": "src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java",
+  "symbol": "DurationFormatUtils::lexx( final String format)",
+  "name": "DurationFormatUtils::lexx",
+  "start_line": 497,
+  "end_line": 568,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 67,
+  "ccn": 18,
+  "n_covering_tests": 18,
+  "covering_tests": [
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testBugzilla38401",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testDurationsByBruteForce",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testEdgeDurations",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDurationHMS",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDurationISO",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDurationPluralWords",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDurationWords",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISOMethod",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testJiraLang281",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testLANG815",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testLANG981",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testLANG982",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testLANG984",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testLexx",
+    "org.apache.commons.lang3.time.DurationFormatUtilsTest::testLowDurations"
+  ],
+  "bench": {
+    "driver": "bench/TCBench.java",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cd /w && mvn -B -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true compile",
+    "run_cmd": "cd /w && rm -rf /tmp/tcb && mkdir -p /tmp/tcb && javac -cp target/classes -d /tmp/tcb {task}/bench/TCBench.java && java -cp target/classes:/tmp/tcb org.apache.commons.lang3.time.TCBench {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

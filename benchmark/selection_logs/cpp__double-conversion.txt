@@ -1,0 +1,10 @@
+double-conversion/double-conversion.cc::double_conversion::RadixStringToIeee@628
+double-conversion/double-conversion.cc::double_conversion::IsHexFloatString@588
+double-conversion/bignum-dtoa.cc::double_conversion::GenerateShortestDigits@185
+double-conversion/bignum.cc::double_conversion::Bignum::AssignPowerUInt16@412
+double-conversion/fixed-dtoa.cc::double_conversion::FillFractionals@230
+double-conversion/double-conversion.cc::double_conversion::DoubleToStringConverter::ToPrecision@291
+double-conversion/bignum.cc::double_conversion::Bignum::PlusCompare@637
+double-conversion/fast-dtoa.cc::double_conversion::RoundWeedCounted@181
+double-conversion/fast-dtoa.cc::double_conversion::RoundWeed@61
+double-conversion/double-conversion.cc::double_conversion::DoubleToStringConverter::ToExponential@236

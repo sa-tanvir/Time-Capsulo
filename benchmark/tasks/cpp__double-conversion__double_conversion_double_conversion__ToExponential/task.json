@@ -1,0 +1,36 @@
+{
+  "task_id": "cpp__double-conversion__double_conversion_double_conversion__ToExponential",
+  "repo": "cpp__double-conversion",
+  "language": "cpp",
+  "repo_url": "https://github.com/google/double-conversion",
+  "tag": "v3.1.5",
+  "commit_sha": "5fa81e88ef24e735b4283b8f7454dc59693ac1fc",
+  "release_date": "2019-05-26",
+  "license": "BSD-3-Clause",
+  "file": "double-conversion/double-conversion.cc",
+  "symbol": "double_conversion::DoubleToStringConverter::ToExponential( double value , int requested_digits , StringBuilder * result_builder) const",
+  "name": "double_conversion::DoubleToStringConverter::ToExponential",
+  "start_line": 236,
+  "end_line": 288,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 41,
+  "ccn": 9,
+  "n_covering_tests": 2,
+  "covering_tests": [
+    "test-conversions/DoubleToExponential",
+    "test-conversions/DoubleToStringJavaScript"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(cat /w/double-conversion/*.cc /w/double-conversion/*.h {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -DNDEBUG -I/w {task}/bench/driver.cpp $(ls /w/double-conversion/*.cc | grep -v '/NONE$') -o /build/drv/$H.tmp && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

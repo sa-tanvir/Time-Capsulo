@@ -1,0 +1,2 @@
+Each line: escaped queue text followed by 1-4 search sequences (</script, -->, </textarea>, single letters of both cases, ...), planted in random letter case, the last one near the end of the text. The driver calls consumeToIgnoreCase(seq) then matchChomp(seq) for each sequence on one TokenQueue. S/M/L: 40 / 3,000 / 200,000 chars. Queues are rebuilt outside the timed region.
+TCBench.java is in the target's package, compiled against target/classes into /tmp/tcb; /w is never modified.

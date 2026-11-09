@@ -1,0 +1,3 @@
+Each line: 'H' and the hex of a byte array: valid UTF-8 text of ASCII/2/3/4-byte characters, optional BOM, and mutations (truncation, stray continuation, bad lead bytes, damage late in the array). S has 25 hand-made cases; M/L have arrays of ~3,000 / ~250,000 characters.
+The method is private static in the nested class HttpConnection.Base, so the driver calls it by reflection (Class.forName("org.jsoup.helper.HttpConnection$Base")); the few, long arrays keep reflection overhead negligible in M and L.
+TCBench.java is in the target's package, compiled against target/classes into /tmp/tcb; /w is never modified.

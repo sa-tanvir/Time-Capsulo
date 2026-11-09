@@ -1,0 +1,9 @@
+{
+  "image": "tc-python37",
+  "license": "Apache-2.0",
+  "src_globs": ["sortedcontainers/*.py"],
+  "exclude_globs": [],
+  "test_cmd": "python -m pytest -q --timeout=60 -p no:cacheprovider --junitxml=/out/junit.xml sortedcontainers tests",
+  "result_format": "junit",
+  "notes": "Runs module doctests (via tox.ini addopts) plus tests/; docs/*.rst doctests excluded (not library tests). No extra deps."
+}

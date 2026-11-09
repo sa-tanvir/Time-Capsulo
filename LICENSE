@@ -1,0 +1,58 @@
+Time Capsulo: licence overview
+==============================
+
+Copyright (c) 2026 Sheikh Tanvir Ahmed, Md. Motaharul Islam, Syed Ishtiaque Ahmed and Mohammad Mehedi Hassan
+
+This package contains three kinds of material, each under its own licence.
+
+1. CODE written for Time Capsulo  ->  MIT License (text below)
+   - harness/ (tc.py, langs.py, generate_ollama.py, summarize.py, fetch_repos.py, check_machine.sh,
+     tools/, docker/)
+   - setup.sh, requirements.txt, .gitignore
+   - the benchmark drivers and workload generators: benchmark/tasks/*/bench/driver.* (Java: TCBench.java)
+     and benchmark/tasks/*/bench/gen_workload.py
+
+2. DATA and DOCUMENTATION written for Time Capsulo  ->  Creative Commons Attribution 4.0
+   International (CC BY 4.0). Full text: LICENSE-DATA-CC-BY-4.0.txt
+   - task specifications (spec.md) and the prompts built from them (prompt.md, tasks.jsonl)
+   - expected output digests (bench/expected.json), task metadata (task.json, index.csv, repos.csv)
+   - repository configurations and baselines (benchmark/repos/), lockfiles, selection logs
+   - blind-check evidence (benchmark/blind_check/)
+   - README.md, QUICKSTART.md, USER_GUIDE.md, DATA_FORMAT.md, CITATION.cff, NOTICE.md
+
+3. THIRD-PARTY CODE from the 30 source libraries  ->  NOT covered by 1 or 2.
+   - the original functions (reference.*), the excerpts in context.md and the stubs in stub.* and
+     prompt.md, and anything else copied from a library, stay under that library's own licence.
+   - Every library is under a permissive licence (MIT, BSD-3-Clause, ISC, Apache-2.0 or a combination).
+   - The licence texts and notices are in third_party_licenses/<language>__<library>/.
+     See NOTICE.md for the table of libraries, versions, commits and licences.
+   - If a file mixes our text with copied library code, the copied part keeps the library's licence.
+
+Disclosure: the task specifications were written with the help of a large language model and checked
+automatically (leakage check, blind solvability check). See the spec_status field in tasks.jsonl.
+
+To cite this dataset, see CITATION.cff.
+
+
+MIT License (applies to the code in item 1)
+-------------------------------------------
+
+Copyright (c) 2026 Sheikh Tanvir Ahmed, Md. Motaharul Islam, Syed Ishtiaque Ahmed and Mohammad Mehedi Hassan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

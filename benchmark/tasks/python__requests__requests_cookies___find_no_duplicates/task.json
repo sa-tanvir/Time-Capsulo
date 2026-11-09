@@ -1,0 +1,46 @@
+{
+  "task_id": "python__requests__requests_cookies___find_no_duplicates",
+  "repo": "python__requests",
+  "language": "python",
+  "repo_url": "https://github.com/psf/requests",
+  "tag": "v2.22.0",
+  "commit_sha": "aeda65bbe57ac5edbcc2d80db85d010befb7d419",
+  "release_date": "2019-05-16",
+  "license": "Apache-2.0",
+  "file": "requests/cookies.py",
+  "symbol": "_find_no_duplicates( self , name , domain = None , path = None )",
+  "name": "_find_no_duplicates",
+  "start_line": 376,
+  "end_line": 399,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 12,
+  "ccn": 9,
+  "n_covering_tests": 12,
+  "covering_tests": [
+    "tests.test_requests.TestRequests::test_DIGEST_AUTH_RETURNS_COOKIE",
+    "tests.test_requests.TestRequests::test_DIGEST_AUTH_SETS_SESSION_COOKIES",
+    "tests.test_requests.TestRequests::test_cookie_as_dict_keeps_items",
+    "tests.test_requests.TestRequests::test_cookie_as_dict_keeps_len",
+    "tests.test_requests.TestRequests::test_cookie_duplicate_names_different_domains",
+    "tests.test_requests.TestRequests::test_cookie_duplicate_names_raises_cookie_conflict_error",
+    "tests.test_requests.TestRequests::test_cookie_parameters",
+    "tests.test_requests.TestRequests::test_cookie_quote_wrapped",
+    "tests.test_requests.TestRequests::test_cookie_removed_on_expire",
+    "tests.test_requests.TestRequests::test_request_cookie_overrides_session_cookie",
+    "tests.test_requests.TestRequests::test_request_with_bytestring_host",
+    "tests.test_requests.TestRequests::test_set_cookie_on_301"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w:/w/.deps python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

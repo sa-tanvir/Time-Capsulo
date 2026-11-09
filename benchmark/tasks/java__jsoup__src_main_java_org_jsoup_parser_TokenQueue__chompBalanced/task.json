@@ -1,0 +1,38 @@
+{
+  "task_id": "java__jsoup__src_main_java_org_jsoup_parser_TokenQueue__chompBalanced",
+  "repo": "java__jsoup",
+  "language": "java",
+  "repo_url": "https://github.com/jhy/jsoup",
+  "tag": "jsoup-1.12.1",
+  "commit_sha": "3f0256953a2938875dba33e58004037989985f7d",
+  "release_date": "2019-05-13",
+  "license": "MIT",
+  "file": "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "symbol": "TokenQueue::chompBalanced( char open , char close)",
+  "name": "TokenQueue::chompBalanced",
+  "start_line": 260,
+  "end_line": 297,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 35,
+  "ccn": 20,
+  "n_covering_tests": 4,
+  "covering_tests": [
+    "org.jsoup.parser.TokenQueueTest::chompBalanced",
+    "org.jsoup.parser.TokenQueueTest::chompBalancedMatchesAsMuchAsPossible",
+    "org.jsoup.parser.TokenQueueTest::chompEscapedBalanced",
+    "org.jsoup.parser.TokenQueueTest::testNestedQuotes"
+  ],
+  "bench": {
+    "driver": "bench/TCBench.java",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cd /w && mvn -B -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -Denforcer.skip=true -Dbundle.skip=true compile",
+    "run_cmd": "cd /w && rm -rf /tmp/tcb && mkdir -p /tmp/tcb && javac -cp target/classes -d /tmp/tcb {task}/bench/TCBench.java && java -cp target/classes:/tmp/tcb org.jsoup.parser.TCBench {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

@@ -1,0 +1,13 @@
+repo_key,candidate_id,action,reason
+go__mux,mux.go::ServeHTTP@175,skip,HTTP plumbing: writes 301 redirects/response headers via ResponseWriter and stores vars in request context; cost dominated by handler dispatch and context allocation rather than routing logic
+go__mux,mux.go::cleanPath@457,add,next-ranked eligible replacement (ccn=5) for skipped ServeHTTP@175; pure path canonicalisation
+go__cobra,zsh_completions.go::MarkZshCompPositionalArgumentWords@147,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+go__gjson,gjson.go::queryMatches@1262,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+go__mux,mux.go::cleanPath@457,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+go__semver,constraints.go::constraintCaret@473,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+go__semver,constraints.go::constraintGreaterThan@335,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+go__semver,constraints.go::constraintLessThanEqual@390,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+go__semver,constraints.go::constraintNotEqual@304,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+go__semver,constraints.go::constraintTilde@417,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+go__semver,version.go::Compare@384,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)
+go__semver,version.go::String@223,retire,fails corrected loop/recursion filter (retired without replacement to save build budget)

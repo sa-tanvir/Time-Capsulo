@@ -1,0 +1,22 @@
+{
+  "image": "tc-cpp",
+  "license": "MIT",
+  "src_globs": [
+    "include/spdlog/*.h",
+    "include/spdlog/details/*.h",
+    "include/spdlog/sinks/*.h"
+  ],
+  "exclude_globs": [
+    "include/spdlog/fmt/**",
+    "tests/**",
+    "bench/**",
+    "example/**"
+  ],
+  "build_cmd": "find /build -name '*.o' -size 0 -delete 2>/dev/null; tc-sync-mtimes /build/.tc_md5 include tests && ( [ -f /build/CMakeCache.txt ] || cmake -S /w -B /build -DCMAKE_BUILD_TYPE=None -DCMAKE_CXX_FLAGS=-O1 -DSPDLOG_BUILD_TESTS=ON -DSPDLOG_BUILD_EXAMPLES=OFF -DSPDLOG_BUILD_BENCH=OFF >/dev/null ) && rm -f /build/tests/spdlog-utests && cmake --build /build -- -j4 2>&1 | grep -E 'error' | head -40; test -x /build/tests/spdlog-utests",
+  "test_cmd": "cd /build/tests && mkdir -p logs && timeout 600 ./spdlog-utests -r junit -o /out/spdlog-utests.xml >/dev/null 2>&1; echo rc=$?",
+  "result_format": "junit",
+  "cache_volumes": {
+    "tc-build-spdlog": "/build"
+  },
+  "notes": "CMake (SPDLOG_BUILD_TESTS=ON, examples/bench off) configured once into /build (volume), -O1 without -g. Catch JUnit reporter writes /out/spdlog-utests.xml; tests run in /build/tests so the relative logs/ directory exists. The bundled fmt copy (include/spdlog/fmt/**) is excluded from candidates (it is fmt, covered by cpp__fmt). The test binary is deleted before each build so a failed compile never runs a stale binary."
+}

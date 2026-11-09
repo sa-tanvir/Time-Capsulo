@@ -1,0 +1,37 @@
+{
+  "task_id": "rust__clap__src_completions_fish__gen_fish_inner",
+  "repo": "rust__clap",
+  "language": "rust",
+  "repo_url": "https://github.com/clap-rs/clap",
+  "tag": "v2.30.0",
+  "commit_sha": "ebe14558e65e961f4340e2e74ec4eaa5f566e440",
+  "release_date": "2018-02-14",
+  "license": "MIT",
+  "file": "src/completions/fish.rs",
+  "symbol": "gen_fish_inner root_command : & str , comp_gen : & FishGen , parent_cmds : & str , buffer : & mut String",
+  "name": "gen_fish_inner",
+  "start_line": 45,
+  "end_line": 120,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 58,
+  "ccn": 14,
+  "n_covering_tests": 3,
+  "covering_tests": [
+    "completions::fish",
+    "completions::fish_with_special_commands",
+    "completions::fish_with_special_help"
+  ],
+  "bench": {
+    "driver": "bench/driver.rs",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -rf /tmp/w && cp -a /w /tmp/w && find /tmp/w/src -name '*.rs' -exec touch {} + && cat {task}/bench/driver.rs >> /tmp/w/src/completions/fish.rs",
+    "run_cmd": "cd /tmp/w && TC_SIZE={size} TC_REPEAT={repeat} TC_MODE={mode} TC_TASK={task} cargo test --release --lib completions::fish::tc_bench::tc_bench -- --nocapture --exact 2>&1"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-19"
+}

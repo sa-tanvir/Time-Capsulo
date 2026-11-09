@@ -1,0 +1,8 @@
+.venv/
+.work/
+/repos/
+/results.jsonl
+/replies/
+__pycache__/
+*.pyc
+harness/tools/tcmeasure

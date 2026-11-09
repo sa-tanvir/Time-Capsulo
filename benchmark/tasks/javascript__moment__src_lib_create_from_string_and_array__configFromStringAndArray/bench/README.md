@@ -1,0 +1,4 @@
+The driver bundles `/w/src/moment.js` with rollup (the target is the exported `configFromStringAndArray` of `src/lib/create/from-string-and-array.js`), builds a fresh creation config per call (`_i`, `_f` = array of formats, `_strict`, `_useUTC`/`_isUTC`, `_locale`, as `createLocalOrUTC` does) and digests every property of the config afterwards (sorted keys; Dates as time values).
+Locales: 'en' and a driver-defined French-like 'tc-fr' (exact month/weekday parsing, own long-date formats and meridiem). `moment.now` is pinned to 2019-01-21T12:00:00Z so defaulted date parts are reproducible.
+Workload: inputs rendered from random dates with one format (35% corrupted); the format list mixes the true format with formats of other inputs, near variants and non-matching formats; S also has test-suite cases (empty list, ambiguous day/month, strict).
+S/M/L grow the number of formats per call: ~3 / ~30 / ~300 (1,500 / 300 / 40 calls).

@@ -1,0 +1,36 @@
+{
+  "task_id": "python__requests__requests_hooks__dispatch_hook",
+  "repo": "python__requests",
+  "language": "python",
+  "repo_url": "https://github.com/psf/requests",
+  "tag": "v2.22.0",
+  "commit_sha": "aeda65bbe57ac5edbcc2d80db85d010befb7d419",
+  "release_date": "2019-05-16",
+  "license": "Apache-2.0",
+  "file": "requests/hooks.py",
+  "symbol": "dispatch_hook( key , hooks , hook_data , ** kwargs )",
+  "name": "dispatch_hook",
+  "start_line": 23,
+  "end_line": 34,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 11,
+  "ccn": 6,
+  "n_covering_tests": 2,
+  "covering_tests": [
+    "tests.test_hooks::test_hooks[hook-ata]",
+    "tests.test_hooks::test_hooks[hooks_list1-ta]"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w:/w/.deps python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

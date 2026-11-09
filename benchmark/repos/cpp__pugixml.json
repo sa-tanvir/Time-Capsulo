@@ -1,0 +1,23 @@
+{
+  "image": "tc-cpp",
+  "license": "MIT",
+  "src_globs": [
+    "src/pugixml.cpp"
+  ],
+  "exclude_globs": [
+    "tests/**",
+    "docs/**",
+    "scripts/**"
+  ],
+  "build_cmd": "find /build -name '*.o' -size 0 -delete 2>/dev/null; tc-sync-mtimes /build/.tc_md5 src tests && sed 's/passed += run_test(test, test->_name, custom_allocate);/{ bool tc_ok = run_test(test, test->_name, custom_allocate); printf(\"TCRESULT %s %s\\\\n\", tc_ok ? \"PASS\" : \"FAIL\", test->_name); fflush(stdout); passed += tc_ok; }/' tests/main.cpp > /build/tc_main.new && (cmp -s /build/tc_main.new /build/tc_main.cpp || mv /build/tc_main.new /build/tc_main.cpp) && rm -f /build/o/test && make -s -j4 -f Makefile BUILD=/build/o CXXFLAGS='-O1 -std=c++11 -Itests' SOURCES=\"src/pugixml.cpp $(ls tests/*.cpp | grep -v -e tests/fuzz_ -e tests/main.cpp | tr '\\n' ' ') /build/tc_main.cpp\" /build/o/test 2>&1 | grep -E 'error' | head -40; test -x /build/o/test",
+  "test_cmd": "cd /w && timeout 600 /build/o/test 2>&1 | grep -a -E '^(TCRESULT|Test |FAILURE|Success)'; true",
+  "result_format": "regex",
+  "result_regex": "^TCRESULT (?P<status>PASS|FAIL) (?P<name>\\S+)$",
+  "pass_values": [
+    "PASS"
+  ],
+  "cache_volumes": {
+    "tc-build-pugixml": "/build"
+  },
+  "notes": "pugixml's own test runner (tests/main.cpp) only prints failures, so build_cmd writes a copy to /build/tc_main.cpp (sed) that prints 'TCRESULT PASS|FAIL <test>' per test, and builds the suite with the repo Makefile into /build (volume) at -O1 without -g/-Werror. Tests run from /w so tests/data paths resolve. tc-sync-mtimes touches content-changed sources because the harness restores files with their old mtimes."
+}

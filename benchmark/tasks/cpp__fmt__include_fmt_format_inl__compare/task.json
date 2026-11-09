@@ -1,0 +1,39 @@
+{
+  "task_id": "cpp__fmt__include_fmt_format_inl__compare",
+  "repo": "cpp__fmt",
+  "language": "cpp",
+  "repo_url": "https://github.com/fmtlib/fmt",
+  "tag": "6.1.0",
+  "commit_sha": "4ca6821e8f26c96f815064f77dff0a74f562bffb",
+  "release_date": "2019-12-02",
+  "license": "MIT",
+  "file": "include/fmt/format-inl.h",
+  "symbol": "internal::bigint::compare( const bigint & lhs , const bigint & rhs)",
+  "name": "internal::bigint::compare",
+  "start_line": 635,
+  "end_line": 649,
+  "end_suffix": "\n",
+  "indent": "  ",
+  "nloc": 15,
+  "ccn": 9,
+  "n_covering_tests": 5,
+  "covering_tests": [
+    "BigIntTest::Compare",
+    "BigIntTest::DivModAssign",
+    "BigIntTest::DivModAssignUnaligned",
+    "BigIntTest::DivModAssignZeroDivisor",
+    "GrisuTest::Fallback"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(cat /w/include/fmt/*.h {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -DFMT_HEADER_ONLY -I/w/include {task}/bench/driver.cpp -o /build/drv/$H.tmp && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

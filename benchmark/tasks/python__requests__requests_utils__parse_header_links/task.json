@@ -1,0 +1,39 @@
+{
+  "task_id": "python__requests__requests_utils__parse_header_links",
+  "repo": "python__requests",
+  "language": "python",
+  "repo_url": "https://github.com/psf/requests",
+  "tag": "v2.22.0",
+  "commit_sha": "aeda65bbe57ac5edbcc2d80db85d010befb7d419",
+  "release_date": "2019-05-16",
+  "license": "Apache-2.0",
+  "file": "requests/utils.py",
+  "symbol": "parse_header_links( value )",
+  "name": "parse_header_links",
+  "start_line": 814,
+  "end_line": 848,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 20,
+  "ccn": 6,
+  "n_covering_tests": 5,
+  "covering_tests": [
+    "tests.test_utils::test_parse_header_links[-expected4]",
+    "tests.test_utils::test_parse_header_links[<http:/.../front.jpeg>-expected1]",
+    "tests.test_utils::test_parse_header_links[<http:/.../front.jpeg>; rel=front; type=\"image/jpeg\"-expected0]",
+    "tests.test_utils::test_parse_header_links[<http:/.../front.jpeg>; type=\"image/jpeg\",<http://.../back.jpeg>;-expected3]",
+    "tests.test_utils::test_parse_header_links[<http:/.../front.jpeg>;-expected2]"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w:/w/.deps python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

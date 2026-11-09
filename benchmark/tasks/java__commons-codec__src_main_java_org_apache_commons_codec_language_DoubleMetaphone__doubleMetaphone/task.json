@@ -1,0 +1,53 @@
+{
+  "task_id": "java__commons-codec__src_main_java_org_apache_commons_codec_language_DoubleMetaphone__doubleMetaphone",
+  "repo": "java__commons-codec",
+  "language": "java",
+  "repo_url": "https://github.com/apache/commons-codec",
+  "tag": "commons-codec-1.13",
+  "commit_sha": "beafa49f88be397f89b78d125d2c7c52b0114006",
+  "release_date": "2019-07-22",
+  "license": "Apache-2.0",
+  "file": "src/main/java/org/apache/commons/codec/language/DoubleMetaphone.java",
+  "symbol": "DoubleMetaphone::doubleMetaphone( String value , final boolean alternate)",
+  "name": "DoubleMetaphone::doubleMetaphone",
+  "start_line": 85,
+  "end_line": 190,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 100,
+  "ccn": 41,
+  "n_covering_tests": 19,
+  "covering_tests": [
+    "org.apache.commons.codec.language.DoubleMetaphone2Test::testDoubleMetaphoneAlternate",
+    "org.apache.commons.codec.language.DoubleMetaphone2Test::testDoubleMetaphonePrimary",
+    "org.apache.commons.codec.language.DoubleMetaphone2Test::testEncodeEmpty",
+    "org.apache.commons.codec.language.DoubleMetaphone2Test::testEncodeNull",
+    "org.apache.commons.codec.language.DoubleMetaphone2Test::testLocaleIndependence",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testCCedilla",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testCodec184",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testDoubleMetaphone",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testEmpty",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testEncodeEmpty",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testEncodeNull",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testIsDoubleMetaphoneEqualBasic",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testIsDoubleMetaphoneEqualExtended2",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testIsDoubleMetaphoneEqualExtended3",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testIsDoubleMetaphoneEqualWithMATCHES",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testIsDoubleMetaphoneNotEqual",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testLocaleIndependence",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testNTilde",
+    "org.apache.commons.codec.language.DoubleMetaphoneTest::testSetMaxCodeLength"
+  ],
+  "bench": {
+    "driver": "bench/TCBench.java",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cd /w && mvn -B -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true compile",
+    "run_cmd": "cd /w && rm -rf /tmp/tcb && mkdir -p /tmp/tcb && javac -cp target/classes -d /tmp/tcb {task}/bench/TCBench.java && java -cp target/classes:/tmp/tcb org.apache.commons.codec.language.TCBench {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-19"
+}

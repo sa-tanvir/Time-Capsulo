@@ -1,0 +1,38 @@
+{
+  "repo": "go__semver",
+  "n_tests": 26,
+  "passing": [
+    "github.com/Masterminds/semver/v3::TestCoerceString",
+    "github.com/Masterminds/semver/v3::TestCollection",
+    "github.com/Masterminds/semver/v3::TestCompare",
+    "github.com/Masterminds/semver/v3::TestConstraintCheck",
+    "github.com/Masterminds/semver/v3::TestConstraintString",
+    "github.com/Masterminds/semver/v3::TestConstraintsCheck",
+    "github.com/Masterminds/semver/v3::TestConstraintsValidate",
+    "github.com/Masterminds/semver/v3::TestEqual",
+    "github.com/Masterminds/semver/v3::TestGreaterThan",
+    "github.com/Masterminds/semver/v3::TestInc",
+    "github.com/Masterminds/semver/v3::TestIsX",
+    "github.com/Masterminds/semver/v3::TestJsonMarshal",
+    "github.com/Masterminds/semver/v3::TestJsonUnmarshal",
+    "github.com/Masterminds/semver/v3::TestLessThan",
+    "github.com/Masterminds/semver/v3::TestNewConstraint",
+    "github.com/Masterminds/semver/v3::TestNewVersion",
+    "github.com/Masterminds/semver/v3::TestOriginal",
+    "github.com/Masterminds/semver/v3::TestOriginalVPrefix",
+    "github.com/Masterminds/semver/v3::TestParseConstraint",
+    "github.com/Masterminds/semver/v3::TestParts",
+    "github.com/Masterminds/semver/v3::TestRewriteRange",
+    "github.com/Masterminds/semver/v3::TestSetMetadata",
+    "github.com/Masterminds/semver/v3::TestSetPrerelease",
+    "github.com/Masterminds/semver/v3::TestStrictNewVersion",
+    "github.com/Masterminds/semver/v3::TestValidateMetadata",
+    "github.com/Masterminds/semver/v3::TestValidatePrerelease"
+  ],
+  "flaky": [],
+  "failing_at_baseline": [],
+  "secs": [
+    3.3,
+    2.7
+  ]
+}

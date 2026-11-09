@@ -1,0 +1,17 @@
+{
+  "image": "tc-python37",
+  "license": "Apache-2.0",
+  "src_globs": [
+    "requests/*.py"
+  ],
+  "exclude_globs": [],
+  "setup_cmd": "pip install --no-cache-dir --no-deps --target /w/.deps pytest==3.10.1 atomicwrites==1.3.0 chardet==3.0.4 idna==2.8 urllib3==1.25.3 certifi==2019.6.16 PySocks==1.7.0 pytest-mock==1.10.4 pytest-httpbin==0.3.0 httpbin==0.7.0 Flask==1.0.3 Werkzeug==0.15.4 Jinja2==2.10.1 MarkupSafe==1.1.1 itsdangerous==1.1.0 click==7.0 decorator==4.4.0 six==1.12.0 raven==6.10.0 Brotli==1.0.9 blinker==1.4",
+  "setup_network": true,
+  "env": {
+    "PYTHONPATH": "/w/.deps"
+  },
+  "test_cmd": "python -m pytest -q --timeout=60 -p no:cacheprovider --junitxml=/out/junit.xml tests",
+  "result_format": "junit",
+  "notes": "Runtime + test deps pinned to 2019 versions in /w/.deps. Brotli==1.0.9 (Google bindings, 2020) replaces brotlipy for httpbin because no aarch64 wheel of brotlipy exists and the image has no compiler; only used by httpbin's /brotli endpoint. pytest-httpbin serves locally; tests needing real internet fail at both baseline runs and are excluded automatically. pytest pinned to 3.10.1 (Pipfile: <=3.10.1) in /w/.deps, shadowing the image's pytest 5.3.5: tests/test_utils.py puts marks inside parametrize values, which pytest>=4 rejects. scan_test_cmd (candidates scan only) runs tests/test_<stem>.py if present, else tests/test_requests.py.",
+  "scan_test_cmd": "f=tests/test_{stem}.py; [ -f $f ] || f=tests/test_requests.py; python -m pytest -q --timeout=60 -p no:cacheprovider --junitxml=/out/junit.xml $f"
+}

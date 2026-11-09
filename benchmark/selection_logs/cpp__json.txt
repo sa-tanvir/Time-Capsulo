@@ -1,0 +1,10 @@
+include/nlohmann/detail/input/binary_reader.hpp::nlohmann::detail::binary_reader::get_cbor_string@699
+include/nlohmann/detail/input/lexer.hpp::nlohmann::detail::lexer::scan@1410
+include/nlohmann/detail/output/binary_writer.hpp::nlohmann::detail::binary_writer::write_ubjson@551
+include/nlohmann/detail/input/binary_reader.hpp::nlohmann::detail::binary_reader::get_ubjson_object@1724
+include/nlohmann/detail/input/binary_reader.hpp::nlohmann::detail::binary_reader::get_ubjson_array@1662
+include/nlohmann/json.hpp::nlohmann::basic_json::diff@7865
+include/nlohmann/json.hpp::nlohmann::basic_json::erase@3804
+include/nlohmann/json.hpp::nlohmann::basic_json::erase@3699
+include/nlohmann/detail/input/binary_reader.hpp::nlohmann::detail::binary_reader::get_cbor_object@824
+include/nlohmann/detail/json_pointer.hpp::nlohmann::json_pointer::get_unchecked@444

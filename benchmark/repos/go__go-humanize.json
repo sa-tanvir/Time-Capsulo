@@ -1,0 +1,21 @@
+{
+  "image": "tc-go",
+  "license": "MIT",
+  "src_globs": [
+    "*.go",
+    "english/*.go"
+  ],
+  "exclude_globs": [
+    "*_test.go",
+    "**/*_test.go"
+  ],
+  "setup_cmd": "[ -f go.mod ] || go mod init github.com/dustin/go-humanize; go list -test ./... >/dev/null",
+  "setup_network": true,
+  "test_cmd": "go-test-each ./... 2>&1",
+  "result_format": "go-json",
+  "cache_volumes": {
+    "tc-cache-gomod": "/go/pkg/mod",
+    "tc-cache-gobuild": "/root/.cache/go-build"
+  },
+  "notes": "Tests run via go-test-each (harness/docker/go-test-each.sh, baked into tc-go): every top-level Test/Example runs in its own test-binary process (test2json -> /out/go-test.json, 60s per test) so a panicking sabotage stub only fails the tests that actually reach it. v1.0.0 predates modules: setup_cmd runs `go mod init github.com/dustin/go-humanize` in the workspace copy (stdlib-only, no downloads)."
+}

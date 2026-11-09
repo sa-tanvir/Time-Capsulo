@@ -1,0 +1,12 @@
+{
+  "image": "tc-javascript",
+  "license": "MIT",
+  "src_globs": ["src/lib/**/*.js"],
+  "exclude_globs": ["src/locale/**", "src/test/**"],
+  "setup_cmd": "sh /opt/tc/npm-install-isolated.sh 2019-01-22 rollup@~0.67.4 qunit@^2.7.1",
+  "setup_network": true,
+  "build_cmd": "ls -laR src/lib >/dev/null; rm -rf build && node /opt/tc/moment-build.js",
+  "test_cmd": "node /opt/tc/qunit-tap.js build/umd/test/moment/*.js 2>&1",
+  "result_format": "tap",
+  "notes": "Runs moment's core unit tests (src/test/moment/*.js, the 'moment' half of `grunt qtest`) with npm qunit under plain node, via /opt/tc/qunit-tap.js (one TAP line per QUnit test). build_cmd replaces `grunt transpile-raw` with /opt/tc/moment-build.js, which rebuilds only build/umd/moment.js and build/umd/test/moment/*.js with rollup 0.67 (same UMD output, header templates and skipLines as tasks/transpile.js), so injected src/lib changes are tested. Locale tests (src/test/locale, ~120 files testing locale data) are not run; src/locale is excluded from src_globs as data. Only rollup and qunit are installed (grunt, karma, lint, nyc omitted), resolved as of 2019-01-22. Image TZ=UTC."
+}

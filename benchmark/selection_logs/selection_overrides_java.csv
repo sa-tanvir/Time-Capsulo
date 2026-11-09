@@ -1,0 +1,26 @@
+repo_key,candidate_id,action,reason
+java__commons-codec,src/main/java/org/apache/commons/codec/language/DaitchMokotoffSoundex.java::DaitchMokotoffSoundex::parseRules@244,skip,private rule-file parser over Scanner/resource format; not benchmarkable in isolation
+java__commons-codec,src/main/java/org/apache/commons/codec/binary/Base32.java::Base32::decode@341,skip,similar stateful Context-based codec to Base32.encode; replaced to diversify
+java__commons-codec,src/main/java/org/apache/commons/codec/language/Nysiis.java::Nysiis::nysiis@245,add,replaces skipped parseRules
+java__commons-codec,src/main/java/org/apache/commons/codec/language/Soundex.java::Soundex::soundex@306,add,replaces skipped Base32.decode
+java__commons-text,src/main/java/org/apache/commons/text/StrSubstitutor.java::StrSubstitutor::substitute@765,skip,deprecated near-duplicate of StringSubstitutor.substitute; replaced to diversify
+java__commons-text,src/main/java/org/apache/commons/text/similarity/JaroWinklerSimilarity.java::JaroWinklerSimilarity::matches@107,add,replaces skipped StrSubstitutor.substitute
+java__commons-text,src/main/java/org/apache/commons/text/ExtendedMessageFormat.java::ExtendedMessageFormat::applyPattern@180,skip,depends on java.text.Format/Locale registries and FormatFactory objects; hard to specify and benchmark in isolation
+java__commons-text,src/main/java/org/apache/commons/text/TextStringBuilder.java::TextStringBuilder::lastIndexOf@2711,add,replaces skipped ExtendedMessageFormat.applyPattern
+java__commons-text,src/main/java/org/apache/commons/text/similarity/JaroWinklerSimilarity.java::JaroWinklerSimilarity::matches@107,retire,only 1 covering test; selection rule is >= 2
+java__commons-text,src/main/java/org/apache/commons/text/ExtendedMessageFormat.java::ExtendedMessageFormat::readArgumentIndex@369,add,replaces retired JaroWinklerSimilarity.matches (13 covering tests)
+java__jsoup,src/main/java/org/jsoup/helper/DataUtil.java::DataUtil::parseInputStream@96,skip,dominated by InputStream I/O and charset sniffing; not benchmarkable in isolation
+java__jsoup,src/main/java/org/jsoup/helper/HttpConnection.java::HttpConnection::Response::processResponseHeaders@980,skip,needs a live HttpURLConnection (network object)
+java__jsoup,src/main/java/org/jsoup/parser/TokenQueue.java::TokenQueue::consumeToIgnoreCase@191,add,replaces skipped DataUtil.parseInputStream (2 covering tests)
+java__jsoup,src/main/java/org/jsoup/select/QueryParser.java::QueryParser::parse@52,add,replaces skipped HttpConnection.processResponseHeaders (4 covering tests)
+java__commons-lang,src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java::FastDatePrinter::parsePattern@181,skip,needs Locale/TimeZone-dependent date printer; result is a list of Rule objects that cannot be compared or benchmarked in isolation
+java__commons-lang,src/main/java/org/apache/commons/lang3/RandomStringUtils.java::RandomStringUtils::random@357,skip,randomness dependent (Random source); not deterministic
+java__commons-lang,src/main/java/org/apache/commons/lang3/time/DateUtils.java::DateUtils::modify@958,skip,dominated by Calendar/time zone/locale behaviour
+java__commons-lang,src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java::DurationFormatUtils::formatPeriod@279,skip,depends on Calendar/TimeZone arithmetic
+java__commons-lang,src/main/java/org/apache/commons/lang3/time/DateUtils.java::DateUtils::iterator@1154,skip,Calendar/time zone dependent iterator
+java__commons-lang,src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java::EqualsBuilder::reflectionAppend@491,skip,reflection over arbitrary objects
+java__commons-lang,src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java::DurationFormatUtils::lexx@497,add,pure tokenizer (replaces skipped time-dependent candidates)
+java__commons-lang,src/main/java/org/apache/commons/lang3/math/Fraction.java::Fraction::greatestCommonDivisor@565,add,pure integer function (replaces skipped candidates)
+java__commons-lang,src/main/java/org/apache/commons/lang3/text/WordUtils.java::WordUtils::wrap@274,add,pure text function (replaces skipped candidates; rank 26 in the candidate scan --until 28)
+java__commons-lang,src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java::NumericEntityUnescaper::translate@81,retire,reference code identical to the commons-text NumericEntityUnescaper.translate task (commons-text was split out of commons-lang)
+java__commons-lang,src/main/java/org/apache/commons/lang3/ArrayUtils.java::ArrayUtils::shift@2722,add,replaces retired NumericEntityUnescaper.translate (shift(byte[] array, int start, int end, int offset); 5 covering tests; ArrayUtils is a new source file for this repo)

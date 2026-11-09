@@ -1,0 +1,51 @@
+{
+  "task_id": "javascript__moment__src_lib_units_day_of_week__localeWeekdaysParse",
+  "repo": "javascript__moment",
+  "language": "javascript",
+  "repo_url": "https://github.com/moment/moment",
+  "tag": "2.24.0",
+  "commit_sha": "96d0d6791ab495859d09a868803d31a55c917de1",
+  "release_date": "2019-01-22",
+  "license": "MIT",
+  "file": "src/lib/units/day-of-week.js",
+  "symbol": "localeWeekdaysParse ( weekdayName , format , strict )",
+  "name": "localeWeekdaysParse",
+  "start_line": 187,
+  "end_line": 225,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 33,
+  "ccn": 18,
+  "n_covering_tests": 17,
+  "covering_tests": [
+    "create :: parsing invalid string weekdays",
+    "create :: parsing localized weekdays",
+    "create :: parsing week and weekday information",
+    "create :: parsing weekday on local dates verifies day acccording to local time",
+    "create :: parsing weekday on local dates with specified offsets verifies day acccording to that offset",
+    "create :: parsing weekday on utc dates verifies day acccording to utc time",
+    "create :: parsing weekday on utc dates with specified offsets verifies day acccording to that offset",
+    "create :: parsing weekdays verifies the day",
+    "create :: string with array of formats",
+    "create :: string with format",
+    "getters and setters :: setters strings",
+    "locale :: when in strict mode with inexact parsing, treat periods in full weekdays literally, not as the regex-period",
+    "locale :: when in strict mode with inexact parsing, treat periods in min-weekdays literally, not as the regex-period",
+    "locale :: when in strict mode with inexact parsing, treat periods in short weekdays literally, not as the regex-period",
+    "parsing flags :: weekday mismatch",
+    "week day :: iso weekday setter with day name",
+    "zones :: parse zone with weekday on verifies day acccording to the offset"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "ls -laR /w/src/lib >/dev/null; node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

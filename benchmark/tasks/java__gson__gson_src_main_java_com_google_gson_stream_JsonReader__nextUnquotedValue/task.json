@@ -1,0 +1,47 @@
+{
+  "task_id": "java__gson__gson_src_main_java_com_google_gson_stream_JsonReader__nextUnquotedValue",
+  "repo": "java__gson",
+  "language": "java",
+  "repo_url": "https://github.com/google/gson",
+  "tag": "gson-parent-2.8.6",
+  "commit_sha": "29c93895bbcaed02178abc9e3d47b73878aaca73",
+  "release_date": "2019-10-05",
+  "license": "Apache-2.0",
+  "file": "gson/src/main/java/com/google/gson/stream/JsonReader.java",
+  "symbol": "JsonReader::nextUnquotedValue()",
+  "name": "JsonReader::nextUnquotedValue",
+  "start_line": 1041,
+  "end_line": 1094,
+  "end_suffix": "\n",
+  "indent": "  ",
+  "nloc": 48,
+  "ccn": 24,
+  "n_covering_tests": 13,
+  "covering_tests": [
+    "com.google.gson.stream.JsonReaderTest::testFailWithPositionOverUnquotedString",
+    "com.google.gson.stream.JsonReaderTest::testLenientNonFiniteDoubles",
+    "com.google.gson.stream.JsonReaderTest::testLenientPartialNonExecutePrefix",
+    "com.google.gson.stream.JsonReaderTest::testLenientUnquotedNames",
+    "com.google.gson.stream.JsonReaderTest::testLenientUnquotedStrings",
+    "com.google.gson.stream.JsonReaderTest::testLenientVeryLongNumber",
+    "com.google.gson.stream.JsonReaderTest::testMalformedDocuments",
+    "com.google.gson.stream.JsonReaderTest::testMalformedNumbers",
+    "com.google.gson.stream.JsonReaderTest::testPeekingUnquotedStringsPrefixedWithBooleans",
+    "com.google.gson.stream.JsonReaderTest::testPeekingUnquotedStringsPrefixedWithIntegers",
+    "com.google.gson.stream.JsonReaderTest::testVeryLongUnquotedLiteral",
+    "com.google.gson.stream.JsonReaderTest::testVeryLongUnquotedString",
+    "com.google.gson.stream.JsonReaderTest::testVeryLongUnterminatedString"
+  ],
+  "bench": {
+    "driver": "bench/TCBench.java",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cd /w && mkdir -p /tmp/gen && sed 's/${project.version}/2.8.6/' gson/src/main/java-templates/com/google/gson/internal/GsonBuildConfig.java > /tmp/gen/GsonBuildConfig.java && mkdir -p gson/target/classes && javac -nowarn -source 1.7 -target 1.7 -encoding UTF-8 -d gson/target/classes $(find gson/src/main/java -name '*.java' ! -name module-info.java) /tmp/gen/GsonBuildConfig.java 2>&1 | grep -v '^Note\\|warning' ; true",
+    "run_cmd": "cd /w && rm -rf /tmp/tcb && mkdir -p /tmp/tcb && javac -cp gson/target/classes -d /tmp/tcb {task}/bench/TCBench.java && java -cp gson/target/classes:/tmp/tcb com.google.gson.stream.TCBench {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

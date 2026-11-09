@@ -1,0 +1,48 @@
+{
+  "task_id": "javascript__lodash__lodash__isEmpty",
+  "repo": "javascript__lodash",
+  "language": "javascript",
+  "repo_url": "https://github.com/lodash/lodash",
+  "tag": "4.17.14",
+  "commit_sha": "be87d303941222b97c482755afc0f4a77ce46c30",
+  "release_date": "2019-07-10",
+  "license": "MIT",
+  "file": "lodash.js",
+  "symbol": "isEmpty ( value )",
+  "name": "isEmpty",
+  "start_line": 11479,
+  "end_line": 11501,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 23,
+  "ccn": 14,
+  "n_covering_tests": 14,
+  "covering_tests": [
+    "lodash methods :: should accept falsey arguments",
+    "lodash(...) methods that return unwrapped values :: `_(...).isEmpty` should return an unwrapped value when implicitly chaining",
+    "lodash.isEmpty :: should not treat objects with lengths larger than `MAX_SAFE_INTEGER` as array-like",
+    "lodash.isEmpty :: should not treat objects with negative lengths as array-like",
+    "lodash.isEmpty :: should not treat objects with non-number lengths as array-like",
+    "lodash.isEmpty :: should return `false` for non-empty values",
+    "lodash.isEmpty :: should return `true` for empty values",
+    "lodash.isEmpty :: should return an unwrapped value when implicitly chaining",
+    "lodash.isEmpty :: should work with `arguments` objects",
+    "lodash.isEmpty :: should work with an object that has a `length` property",
+    "lodash.isEmpty :: should work with jQuery/MooTools DOM query collections",
+    "lodash.isEmpty :: should work with maps",
+    "lodash.isEmpty :: should work with prototytpe objects",
+    "lodash.isEmpty :: should work with sets"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

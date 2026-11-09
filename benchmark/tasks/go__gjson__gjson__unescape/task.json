@@ -1,0 +1,45 @@
+{
+  "task_id": "go__gjson__gjson__unescape",
+  "repo": "go__gjson",
+  "language": "go",
+  "repo_url": "https://github.com/tidwall/gjson",
+  "tag": "v1.3.5",
+  "commit_sha": "5c2e4b382486589dad7478130a364ee2fa6a068b",
+  "release_date": "2019-11-18",
+  "license": "MIT",
+  "file": "gjson.go",
+  "symbol": "unescape json string",
+  "name": "unescape",
+  "start_line": 1992,
+  "end_line": 2048,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 54,
+  "ccn": 19,
+  "n_covering_tests": 11,
+  "covering_tests": [
+    "github.com/tidwall/gjson::TestBasic3",
+    "github.com/tidwall/gjson::TestBasic4",
+    "github.com/tidwall/gjson::TestBasic5",
+    "github.com/tidwall/gjson::TestEmoji",
+    "github.com/tidwall/gjson::TestForEach",
+    "github.com/tidwall/gjson::TestIssue38",
+    "github.com/tidwall/gjson::TestRandomData",
+    "github.com/tidwall/gjson::TestRandomMany",
+    "github.com/tidwall/gjson::TestRandomValidStrings",
+    "github.com/tidwall/gjson::TestSubSelectors",
+    "github.com/tidwall/gjson::TestUnescape"
+  ],
+  "bench": {
+    "driver": "bench/driver_test.go",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cp {task}/bench/driver_test.go /w/zz_tcbench_test.go && cd /w && go test -c -o /tmp/tcbench.test . ; rc=$?; rm -f zz_tcbench_test.go; exit $rc",
+    "run_cmd": "cd /w && TC_SIZE={size} TC_REPEAT={repeat} TC_MODE={mode} TC_TASK={task} /tmp/tcbench.test -test.run '^TestTCBench$' -test.count=1 -test.v"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

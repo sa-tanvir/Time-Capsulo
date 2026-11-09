@@ -1,0 +1,3 @@
+Each workload line: reader chunk size (max chars per Reader.read; 0 = unlimited), S/L (strict/lenient), number of calls, prefix, unit, repeat count, suffix; the input text is prefix + unit*count + suffix (ASCII-escaped). Same texts as nextUnquotedValue.
+The driver (package com.google.gson.stream, compiled against gson/target/classes into /tmp/tcb; /w is never modified) creates a JsonReader over the text, primes its buffer with the private fillBuffer(1) via reflection, calls the private method skipUnquotedValue via reflection, and records the result, any exception (class and message) and the consumed character offset. In time mode readers are built outside the timed region in batches of 200.
+Sizes: S: ~30 chars; M: ~300; L: ~12,000 chars.

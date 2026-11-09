@@ -1,0 +1,2 @@
+Each line is one escaped HTML document containing a form with random controls (inputs of many types, textareas, selects with selected/unselected options, buttons, keygen/object, disabled and nameless controls, wrappers). The driver parses it (Jsoup.parse, untimed) and calls FormElement.formData() on every form; check mode digests key=value lists. S: 12 forms (one hand-made), M: 3 forms of ~300 controls, L: 3 forms of ~12,000 controls.
+TCBench.java is in the target's package, compiled against target/classes into /tmp/tcb; /w is never modified.

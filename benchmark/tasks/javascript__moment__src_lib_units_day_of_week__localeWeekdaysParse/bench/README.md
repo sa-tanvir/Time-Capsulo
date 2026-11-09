@@ -1,0 +1,4 @@
+The driver bundles `/w/src/moment.js` plus `src/lib/units/day-of-week.js` with the repo's rollup and calls `localeWeekdaysParse.call(locale, weekdayName, format, strict)` (the `Locale#weekdaysParse` method).
+Locales: 'en' and five driver-defined ones (French-like names with periods, the same with `weekdaysParseExact`, names containing '.', format/standalone names, exact-mode names that are prefixes of each other). Locales keep their lazily built caches across calls (cold at the start of check mode).
+Workload: exact names in random case, names with trailing text, truncated names and junk, with formats 'dddd'/'ddd'/'dd'/'d'/undefined and strict true/false/undefined; S also has the test-suite cases.
+Per-call work is bounded (7 weekdays), so S/M/L scale the call count: 2,000 / 20,000 / 200,000.

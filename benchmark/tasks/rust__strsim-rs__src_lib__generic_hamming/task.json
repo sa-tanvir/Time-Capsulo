@@ -1,0 +1,42 @@
+{
+  "task_id": "rust__strsim-rs__src_lib__generic_hamming",
+  "repo": "rust__strsim-rs",
+  "language": "rust",
+  "repo_url": "https://github.com/dguo/strsim-rs",
+  "tag": "0.9.2",
+  "commit_sha": "cc25041cc1aa583fa890c15bf2920a6dd952190a",
+  "release_date": "2019-05-09",
+  "license": "MIT",
+  "file": "src/lib.rs",
+  "symbol": "generic_hamming a : Iter1 , b : Iter2",
+  "name": "generic_hamming",
+  "start_line": 32,
+  "end_line": 45,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 14,
+  "ccn": 4,
+  "n_covering_tests": 8,
+  "covering_tests": [
+    "lib::hamming_works",
+    "strsim::tests::hamming_diff",
+    "strsim::tests::hamming_diff_multibyte",
+    "strsim::tests::hamming_empty",
+    "strsim::tests::hamming_names",
+    "strsim::tests::hamming_numbers",
+    "strsim::tests::hamming_same",
+    "strsim::tests::hamming_unequal_length"
+  ],
+  "bench": {
+    "driver": "bench/driver.rs",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -rf /tmp/w && cp -a /w /tmp/w && find /tmp/w/src -name '*.rs' -exec touch {} + && cat {task}/bench/driver.rs >> /tmp/w/src/lib.rs",
+    "run_cmd": "cd /tmp/w && TC_SIZE={size} TC_REPEAT={repeat} TC_MODE={mode} TC_TASK={task} cargo test --release --lib tc_bench::tc_bench -- --nocapture --exact 2>&1"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

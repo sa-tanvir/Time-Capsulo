@@ -1,0 +1,12 @@
+{
+  "image": "tc-javascript",
+  "license": "MIT",
+  "src_globs": ["src/lib/*.js", "src/lib/util/*.js"],
+  "exclude_globs": [],
+  "setup_cmd": "sh /opt/tc/npm-install-isolated.sh 2019-11-21 mocha@^5.1.1 @babel/core@^7.0.0 @babel/register@^7.0.0 @babel/preset-env@^7.0.0 babel-plugin-add-module-exports@^1.0.0",
+  "setup_network": true,
+  "test_cmd": "ls -la src/lib >/dev/null; node_modules/.bin/mocha --require @babel/register --timeout 20000 --reporter xunit --reporter-options output=/out/mocha.xml test/validators.js test/sanitizers.js test/exports.js > /dev/null 2>&1; exit 0",
+  "result_format": "junit",
+  "env": {"BABEL_DISABLE_CACHE": "1"},
+  "notes": "Runs the mocha suite on src/ through @babel/register (repo .babelrc, 'development' env), xunit reporter to /out. test/client-side.js is excluded (it only exercises the prebuilt browser bundle). Only the devDependencies needed by the tests are installed (lint, nyc, rollup, uglify omitted), resolved as of 2019-11-21. BABEL_DISABLE_CACHE avoids stale transpile caches after source injection. Each mocha it() typically covers one validator, so covering-test counts are small."
+}

@@ -1,0 +1,8 @@
+{
+  "image": "tc-python37",
+  "license": "MIT",
+  "src_globs": ["more_itertools/*.py"],
+  "exclude_globs": ["more_itertools/tests/*"],
+  "test_cmd": "python -m pytest -q --timeout=60 -p no:cacheprovider --junitxml=/out/junit.xml more_itertools/tests",
+  "result_format": "junit"
+}

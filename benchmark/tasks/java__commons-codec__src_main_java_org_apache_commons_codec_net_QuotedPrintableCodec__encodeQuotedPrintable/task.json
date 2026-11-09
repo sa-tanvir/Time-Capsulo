@@ -1,0 +1,48 @@
+{
+  "task_id": "java__commons-codec__src_main_java_org_apache_commons_codec_net_QuotedPrintableCodec__encodeQuotedPrintable",
+  "repo": "java__commons-codec",
+  "language": "java",
+  "repo_url": "https://github.com/apache/commons-codec",
+  "tag": "commons-codec-1.13",
+  "commit_sha": "beafa49f88be397f89b78d125d2c7c52b0114006",
+  "release_date": "2019-07-22",
+  "license": "Apache-2.0",
+  "file": "src/main/java/org/apache/commons/codec/net/QuotedPrintableCodec.java",
+  "symbol": "QuotedPrintableCodec::encodeQuotedPrintable( BitSet printable , final byte [ ] bytes , final boolean strict)",
+  "name": "QuotedPrintableCodec::encodeQuotedPrintable",
+  "start_line": 271,
+  "end_line": 335,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 50,
+  "ccn": 16,
+  "n_covering_tests": 14,
+  "covering_tests": [
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testBasicEncodeDecode",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testDefaultEncoding",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testEncodeNull",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testEncodeObjects",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testEncodeUrlWithNullBitSet",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testFinalBytes",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testSafeCharEncodeDecode",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testSkipNotEncodedCRLF",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testSoftLineBreakDecode",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testSoftLineBreakEncode",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testTrailingSpecial",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testUTF8RoundTrip",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testUltimateSoftBreak",
+    "org.apache.commons.codec.net.QuotedPrintableCodecTest::testUnsafeEncodeDecode"
+  ],
+  "bench": {
+    "driver": "bench/TCBench.java",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cd /w && mvn -B -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true compile",
+    "run_cmd": "cd /w && rm -rf /tmp/tcb && mkdir -p /tmp/tcb && javac -cp target/classes -d /tmp/tcb {task}/bench/TCBench.java && java -cp target/classes:/tmp/tcb org.apache.commons.codec.net.TCBench {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-19"
+}

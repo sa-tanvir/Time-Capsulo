@@ -1,0 +1,50 @@
+{
+  "task_id": "javascript__moment__src_lib_create_from_string_and_array__configFromStringAndArray",
+  "repo": "javascript__moment",
+  "language": "javascript",
+  "repo_url": "https://github.com/moment/moment",
+  "tag": "2.24.0",
+  "commit_sha": "96d0d6791ab495859d09a868803d31a55c917de1",
+  "release_date": "2019-01-22",
+  "license": "MIT",
+  "file": "src/lib/create/from-string-and-array.js",
+  "symbol": "configFromStringAndArray ( config )",
+  "name": "configFromStringAndArray",
+  "start_line": 8,
+  "end_line": 50,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 32,
+  "ccn": 8,
+  "n_covering_tests": 16,
+  "covering_tests": [
+    "create :: empty string with formats",
+    "create :: multi format array copying",
+    "create :: parsing flags retain parsed date parts",
+    "create :: parsing only meridiem results in invalid date",
+    "create :: strict parsing",
+    "create :: string with array of formats",
+    "create :: string with array of formats + ISO",
+    "create :: undefined argument with formats",
+    "create :: utc with array of formats",
+    "creation data :: valid date with formats",
+    "format :: format multiple with utc offset",
+    "is valid :: oddball permissiveness",
+    "is valid :: string + formats bad date",
+    "parsing flags :: empty format array",
+    "utc offset :: parse zone with more arguments",
+    "zones :: parse zone with more arguments"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "ls -laR /w/src/lib >/dev/null; node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

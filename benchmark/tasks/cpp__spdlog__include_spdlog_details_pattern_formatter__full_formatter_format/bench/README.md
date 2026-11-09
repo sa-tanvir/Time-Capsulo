@@ -1,0 +1,2 @@
+Line: secs nanos level name_len payload_len line seed tid msg_id (texts synthesised by the driver). 300 / 3000 / 6000 cases; name length up to 12 / 120 / 1200 and payload up to 40 / 400 / 4000 characters, times 2001..2036, source location in 1/3 of the cases.
+Driver keeps one `full_formatter`, builds a log_msg with a fixed time point, `tm` from gmtime and hashes the output plus color_range_start/end.

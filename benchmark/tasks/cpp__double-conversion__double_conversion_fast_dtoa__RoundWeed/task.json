@@ -1,0 +1,46 @@
+{
+  "task_id": "cpp__double-conversion__double_conversion_fast_dtoa__RoundWeed",
+  "repo": "cpp__double-conversion",
+  "language": "cpp",
+  "repo_url": "https://github.com/google/double-conversion",
+  "tag": "v3.1.5",
+  "commit_sha": "5fa81e88ef24e735b4283b8f7454dc59693ac1fc",
+  "release_date": "2019-05-26",
+  "license": "BSD-3-Clause",
+  "file": "double-conversion/fast-dtoa.cc",
+  "symbol": "double_conversion::RoundWeed( Vector<char> buffer , int length , uint64_t distance_too_high_w , uint64_t unsafe_interval , uint64_t rest , uint64_t ten_kappa , uint64_t unit)",
+  "name": "double_conversion::RoundWeed",
+  "start_line": 61,
+  "end_line": 166,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 25,
+  "ccn": 10,
+  "n_covering_tests": 12,
+  "covering_tests": [
+    "test-conversions/DoubleToExponential",
+    "test-conversions/DoubleToShortest",
+    "test-conversions/DoubleToShortestSingle",
+    "test-conversions/DoubleToStringJavaScript",
+    "test-dtoa/DtoaGayShortest",
+    "test-dtoa/DtoaGayShortestSingle",
+    "test-dtoa/DtoaSign",
+    "test-dtoa/DtoaVariousDoubles",
+    "test-fast-dtoa/FastDtoaGayShortest",
+    "test-fast-dtoa/FastDtoaGayShortestSingle",
+    "test-fast-dtoa/FastDtoaShortestVariousDoubles",
+    "test-fast-dtoa/FastDtoaShortestVariousFloats"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(cat /w/double-conversion/*.cc /w/double-conversion/*.h {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -DNDEBUG -I/w {task}/bench/driver.cpp $(ls /w/double-conversion/*.cc | grep -v '/fast-dtoa.cc$') -o /build/drv/$H.tmp && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

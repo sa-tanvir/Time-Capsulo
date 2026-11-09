@@ -1,0 +1,23 @@
+{
+  "image": "tc-python37",
+  "license": "Apache-2.0 AND BSD-3-Clause",
+  "src_globs": [
+    "dateutil/*.py",
+    "dateutil/parser/*.py",
+    "dateutil/tz/*.py"
+  ],
+  "exclude_globs": [
+    "dateutil/test/*",
+    "dateutil/tzwin.py",
+    "dateutil/tz/win.py",
+    "dateutil/zoneinfo/rebuild.py"
+  ],
+  "setup_cmd": "pip install --no-cache-dir --no-deps --target /w/.deps six==1.12.0 freezegun==0.3.12 hypothesis==4.36.2 attrs==19.1.0",
+  "setup_network": true,
+  "env": {
+    "PYTHONPATH": "/w/.deps"
+  },
+  "test_cmd": "python -m pytest -q --timeout=60 -p no:cacheprovider -W ignore::pytest.PytestUnknownMarkWarning --junitxml=/out/junit.xml dateutil/test",
+  "result_format": "junit",
+  "notes": "Test deps pinned to 2019 versions and installed into /w/.deps (six, freezegun, hypothesis, attrs). Windows-only modules excluded. -W ignore::PytestUnknownMarkWarning because conftest adds the pytest-cov 'no_cover' mark and setup.cfg turns warnings into errors (pytest-cov not installed)."
+}

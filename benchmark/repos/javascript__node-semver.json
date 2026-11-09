@@ -1,0 +1,11 @@
+{
+  "image": "tc-javascript",
+  "license": "ISC",
+  "src_globs": ["semver.js"],
+  "exclude_globs": [],
+  "setup_cmd": "sh /opt/tc/npm-install-isolated.sh 2019-07-24 tap@^14.3.1",
+  "setup_network": true,
+  "test_cmd": "bash /opt/tc/tap-files.sh test/*.js",
+  "result_format": "tap",
+  "notes": "Each tap test file is run directly with node (no nyc coverage gate) via /opt/tc/tap-files.sh, which reports the top-level t.test() subtests of each file as tests. tap 14 (as in devDependencies, resolved as of the release date) is needed for resolveMatchSnapshot/cleanSnapshot in test/cli.js."
+}

@@ -1,0 +1,48 @@
+{
+  "task_id": "javascript__node-semver__semver__Range_test",
+  "repo": "javascript__node-semver",
+  "language": "javascript",
+  "repo_url": "https://github.com/npm/node-semver",
+  "tag": "v6.3.0",
+  "commit_sha": "0eeceecfba490d136eb3ccae3a8dc118a28565a0",
+  "release_date": "2019-07-24",
+  "license": "ISC",
+  "file": "semver.js",
+  "symbol": "Range.prototype.test ( version )",
+  "name": "Range.prototype.test",
+  "start_line": 1276,
+  "end_line": 1295,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 18,
+  "ccn": 6,
+  "n_covering_tests": 14,
+  "covering_tests": [
+    "test/cli.js :: sorting and filtering",
+    "test/gtr.js :: gtr tests",
+    "test/gtr.js :: negative gtr tests",
+    "test/index.js :: intersect comparators",
+    "test/index.js :: max satisfying",
+    "test/index.js :: min satisfying",
+    "test/index.js :: negative range tests",
+    "test/index.js :: negative unlocked prerelease range tests",
+    "test/index.js :: range tests",
+    "test/index.js :: ranges intersect",
+    "test/index.js :: unlocked prerelease range tests",
+    "test/ltr.js :: ltr tests",
+    "test/ltr.js :: negative ltr tests",
+    "test/min-version.js :: minimum version in range tests"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

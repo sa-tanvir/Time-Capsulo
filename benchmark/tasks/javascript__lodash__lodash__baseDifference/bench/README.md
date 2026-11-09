@@ -1,0 +1,4 @@
+`baseDifference` is internal; the driver calls the public `_.difference(a, v)`, `_.differenceBy(a, v, iteratee)` and `_.differenceWith(a, v, comparator)` from `require('/w/lodash.js')`, which delegate straight to it.
+Workload: pairs of arrays generated before timing from a seeded LCG over a shared key domain: integers with -0/+0 and NaN, strings, shared objects (fresh copies for the iteratee mode), mixed primitives with symbols, floats; exclusion arrays of 3, 50, 199, 200, n/3 or n elements; iteratees are a floor key function or the `'id'` shorthand, comparators `_.eq` or id-equality (40x shorter arrays in that pairwise mode).
+First-array length 500-1,000 / 5,000-10,000 / 50,000-100,000 (S/M/L), 40 cases each; S adds tiny/empty arrays.
+The digest covers each result element (sign of zero, NaN, symbols, object ids and reference identity).

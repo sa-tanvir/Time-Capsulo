@@ -1,0 +1,36 @@
+{
+  "task_id": "go__go-humanize__comma__Comma",
+  "repo": "go__go-humanize",
+  "language": "go",
+  "repo_url": "https://github.com/dustin/go-humanize",
+  "tag": "v1.0.0",
+  "commit_sha": "9f541cc9db5d55bce703bd99987c9d5cb8eea45e",
+  "release_date": "2018-07-13",
+  "license": "MIT",
+  "file": "comma.go",
+  "symbol": "Comma v int64",
+  "name": "Comma",
+  "start_line": 15,
+  "end_line": 44,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 25,
+  "ccn": 6,
+  "n_covering_tests": 2,
+  "covering_tests": [
+    "github.com/dustin/go-humanize/english::TestPlural",
+    "github.com/dustin/go-humanize::TestCommas"
+  ],
+  "bench": {
+    "driver": "bench/driver_test.go",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cp {task}/bench/driver_test.go /w/zz_tcbench_test.go && cd /w && go test -c -o /tmp/tcbench.test . ; rc=$?; rm -f zz_tcbench_test.go; exit $rc",
+    "run_cmd": "cd /w && TC_SIZE={size} TC_REPEAT={repeat} TC_MODE={mode} TC_TASK={task} /tmp/tcbench.test -test.run '^TestTCBench$' -test.count=1 -test.v"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

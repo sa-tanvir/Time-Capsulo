@@ -1,0 +1,36 @@
+{
+  "task_id": "java__jsoup__src_main_java_org_jsoup_internal_StringUtil__appendNormalisedWhitespace",
+  "repo": "java__jsoup",
+  "language": "java",
+  "repo_url": "https://github.com/jhy/jsoup",
+  "tag": "jsoup-1.12.1",
+  "commit_sha": "3f0256953a2938875dba33e58004037989985f7d",
+  "release_date": "2019-05-13",
+  "license": "MIT",
+  "file": "src/main/java/org/jsoup/internal/StringUtil.java",
+  "symbol": "StringUtil::appendNormalisedWhitespace( StringBuilder accum , String string , boolean stripLeading)",
+  "name": "StringUtil::appendNormalisedWhitespace",
+  "start_line": 157,
+  "end_line": 177,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 20,
+  "ccn": 7,
+  "n_covering_tests": 2,
+  "covering_tests": [
+    "org.jsoup.internal.StringUtilTest::normaliseWhiteSpace",
+    "org.jsoup.internal.StringUtilTest::normaliseWhiteSpaceHandlesHighSurrogates"
+  ],
+  "bench": {
+    "driver": "bench/TCBench.java",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cd /w && mvn -B -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -Denforcer.skip=true -Dbundle.skip=true compile",
+    "run_cmd": "cd /w && rm -rf /tmp/tcb && mkdir -p /tmp/tcb && javac -cp target/classes -d /tmp/tcb {task}/bench/TCBench.java && java -cp target/classes:/tmp/tcb org.jsoup.internal.TCBench {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

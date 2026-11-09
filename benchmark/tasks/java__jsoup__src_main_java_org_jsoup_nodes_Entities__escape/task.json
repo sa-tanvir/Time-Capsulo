@@ -1,0 +1,41 @@
+{
+  "task_id": "java__jsoup__src_main_java_org_jsoup_nodes_Entities__escape",
+  "repo": "java__jsoup",
+  "language": "java",
+  "repo_url": "https://github.com/jhy/jsoup",
+  "tag": "jsoup-1.12.1",
+  "commit_sha": "3f0256953a2938875dba33e58004037989985f7d",
+  "release_date": "2019-05-13",
+  "license": "MIT",
+  "file": "src/main/java/org/jsoup/nodes/Entities.java",
+  "symbol": "Entities::escape( Appendable accum , String string , Document . OutputSettings out , boolean inAttribute , boolean normaliseWhite , boolean stripLeadingWhite)",
+  "name": "Entities::escape",
+  "start_line": 173,
+  "end_line": 246,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 68,
+  "ccn": 20,
+  "n_covering_tests": 7,
+  "covering_tests": [
+    "org.jsoup.nodes.EntitiesTest::caseSensitive",
+    "org.jsoup.nodes.EntitiesTest::escape",
+    "org.jsoup.nodes.EntitiesTest::escapeSupplementaryCharacter",
+    "org.jsoup.nodes.EntitiesTest::escapedSupplementary",
+    "org.jsoup.nodes.EntitiesTest::escapesGtInXmlAttributesButNotInHtml",
+    "org.jsoup.nodes.EntitiesTest::letterDigitEntities",
+    "org.jsoup.nodes.EntitiesTest::unescapeMultiChars"
+  ],
+  "bench": {
+    "driver": "bench/TCBench.java",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "cd /w && mvn -B -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -Denforcer.skip=true -Dbundle.skip=true compile",
+    "run_cmd": "cd /w && rm -rf /tmp/tcb && mkdir -p /tmp/tcb && javac -cp target/classes -d /tmp/tcb {task}/bench/TCBench.java && java -cp target/classes:/tmp/tcb org.jsoup.nodes.TCBench {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

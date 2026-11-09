@@ -1,0 +1,42 @@
+{
+  "task_id": "rust__textwrap__src_lib__fill",
+  "repo": "rust__textwrap",
+  "language": "rust",
+  "repo_url": "https://github.com/mgeisler/textwrap",
+  "tag": "0.11.0",
+  "commit_sha": "abcd618beae3f74841032aa5b53c1086b0a57ca2",
+  "release_date": "2018-12-10",
+  "license": "MIT",
+  "file": "src/lib.rs",
+  "symbol": "fill & self , s : & str",
+  "name": "fill",
+  "start_line": 231,
+  "end_line": 244,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 10,
+  "ccn": 3,
+  "n_covering_tests": 8,
+  "covering_tests": [
+    "textwrap::tests::break_words_line_breaks",
+    "textwrap::tests::empty_input_not_indented",
+    "textwrap::tests::fill_simple",
+    "textwrap::tests::indent_single_line",
+    "textwrap::tests::non_breaking_hyphen",
+    "textwrap::tests::non_breaking_space",
+    "textwrap::tests::preserve_line_breaks",
+    "textwrap::tests::wrap_preserve_line_breaks"
+  ],
+  "bench": {
+    "driver": "bench/driver.rs",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -rf /tmp/w && cp -a /w /tmp/w && find /tmp/w/src -name '*.rs' -exec touch {} + && cat {task}/bench/driver.rs >> /tmp/w/src/lib.rs",
+    "run_cmd": "cd /tmp/w && TC_SIZE={size} TC_REPEAT={repeat} TC_MODE={mode} TC_TASK={task} cargo test --release --lib tc_bench::tc_bench -- --nocapture --exact 2>&1"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

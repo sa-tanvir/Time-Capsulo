@@ -1,0 +1,38 @@
+{
+  "task_id": "cpp__json__include_nlohmann_detail_input_binary_reader__get_ubjson_object",
+  "repo": "cpp__json",
+  "language": "cpp",
+  "repo_url": "https://github.com/nlohmann/json",
+  "tag": "v3.7.2",
+  "commit_sha": "411158d896c86e210b8fdea47a41522d4408380b",
+  "release_date": "2019-11-11",
+  "license": "MIT",
+  "file": "include/nlohmann/detail/input/binary_reader.hpp",
+  "symbol": "nlohmann::detail::binary_reader::get_ubjson_object()",
+  "name": "nlohmann::detail::binary_reader::get_ubjson_object",
+  "start_line": 1724,
+  "end_line": 1794,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 67,
+  "ccn": 15,
+  "n_covering_tests": 4,
+  "covering_tests": [
+    "test-regression::regression tests",
+    "test-ubjson::UBJSON",
+    "test-ubjson::Universal Binary JSON Specification Examples 1",
+    "test-ubjson::all UBJSON first bytes"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(cat $(find /w/include -name '*.hpp' | sort) {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -fno-access-control -I/w/include {task}/bench/driver.cpp -o /build/drv/$H.tmp && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-21"
+}

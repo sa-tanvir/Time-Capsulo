@@ -1,0 +1,3 @@
+`baseSortedIndexBy` is internal; the driver calls the public `_.sortedIndexBy` / `_.sortedLastIndexBy` (function, `_.identity` and `'x'` property iteratees) and, for non-number search values, `_.sortedIndex` / `_.sortedLastIndex`, all of which delegate directly to it (from `require('/w/lodash.js')`).
+Workload: sorted arrays (built before timing from a seed) of numbers, zero-padded strings, `{x}` objects, or numbers followed by blocks of symbols, nulls, undefineds and NaNs (the `_.sortBy` order); 400 queries per array mixing in-range, out-of-range and special values.
+Array length 500-1,000 / 5,000-10,000 / 50,000-100,000 (S/M/L), 60 arrays each. The check digest also covers 2^31 / 2^32-1 length sparse arrays (results and iteratee call counts) and nullish arrays.

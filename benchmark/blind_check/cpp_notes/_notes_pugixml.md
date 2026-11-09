@@ -1,0 +1,10 @@
+convert_number_to_string: Unclear whether out_mantissa for negative values already skips '-' (assumed yes, used value<0 for sign); exact allocation size left to me (computed exactly); whether xpath_string::from_heap_preallocated's end must be exactly the NUL position (assumed yes).
+parse_declaration_encoding: Loop bound "i + 1 < size" combined with needing 8 bytes of "encoding" - assumed bounds-checked reads returning false when truncated; "<?xml" check on whitespace byte at index 5 assumed; delimiter at end-of-buffer (offset>=size) treated as failure.
+sort: Complexity/memory constraints clear, algorithm choice free (I used iterative-ish introsort with heapsort fallback, recursion on smaller half); unclear whether recursing into sort() itself is acceptable; whether pred calls with an element copy (pivot) are allowed (I avoided copies).
+strconv_comment: Whether to use the gap helper or plain read/write pointers was not specified (I used plain pointers); return pointer for NUL special case relative to the written text is clear; behaviour of '>'-ending when endch=='>' and "--" at NUL clear.
+strconv_escape: Hex digit failure position and "first deviating character" rules for named refs were mostly clear; for &#x with no digits return position (the ';' or bad char) inferred; numeric overflow wrapping assumed unsigned int.
+string_to_integer: Ambiguity on 2-byte U promotion (handled with casts); "0x" followed by non-hex yields 0 (clear); leading-zero overflow clear. Otherwise none.
+string_value: Whether the own value of an element/document should be appended via from_const when it is empty (I skip it); whether append of a single piece into an empty xpath_string avoids copy is assumed.
+text_output_escaped: Slight tension: PUGI__IS_CHARTYPEX true for NUL (handled via loop condition); for pcdata type the '"' / '\'' case never triggers so flag handling irrelevant; none otherwise.
+unique: Spec says "compare candidate to last kept element" - clear; none.
+utf8_decoder_process: Did not implement SWAR ASCII fast path (spec only hints at speed); no other ambiguity.

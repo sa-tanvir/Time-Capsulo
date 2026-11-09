@@ -1,0 +1,36 @@
+{
+  "task_id": "python__more-itertools__more_itertools_recipes__roundrobin",
+  "repo": "python__more-itertools",
+  "language": "python",
+  "repo_url": "https://github.com/more-itertools/more-itertools",
+  "tag": "v7.2.0",
+  "commit_sha": "99884cbd7f784478d7305ffdfb1a39f08d49fd4c",
+  "release_date": "2019-07-20",
+  "license": "MIT",
+  "file": "more_itertools/recipes.py",
+  "symbol": "roundrobin( * iterables )",
+  "name": "roundrobin",
+  "start_line": 282,
+  "end_line": 302,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 10,
+  "ccn": 5,
+  "n_covering_tests": 2,
+  "covering_tests": [
+    "more_itertools.tests.test_recipes.RoundrobinTests::test_even_groups",
+    "more_itertools.tests.test_recipes.RoundrobinTests::test_uneven_groups"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

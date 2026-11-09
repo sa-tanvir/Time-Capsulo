@@ -1,0 +1,49 @@
+{
+  "task_id": "javascript__lodash__lodash__truncate",
+  "repo": "javascript__lodash",
+  "language": "javascript",
+  "repo_url": "https://github.com/lodash/lodash",
+  "tag": "4.17.14",
+  "commit_sha": "be87d303941222b97c482755afc0f4a77ce46c30",
+  "release_date": "2019-07-10",
+  "license": "MIT",
+  "file": "lodash.js",
+  "symbol": "truncate ( string , options )",
+  "name": "truncate",
+  "start_line": 15074,
+  "end_line": 15128,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 51,
+  "ccn": 18,
+  "n_covering_tests": 15,
+  "covering_tests": [
+    "\"Strings\" category methods :: `_.truncate` should return an empty string for empty values",
+    "lodash methods :: should accept falsey arguments",
+    "lodash(...) methods that return unwrapped values :: `_(...).truncate` should return an unwrapped value when implicitly chaining",
+    "lodash.truncate :: should coerce `length` to an integer",
+    "lodash.truncate :: should coerce `string` to a string",
+    "lodash.truncate :: should coerce nullish `omission` values to strings",
+    "lodash.truncate :: should not truncate if `string` is <= `length`",
+    "lodash.truncate :: should support a `length` option",
+    "lodash.truncate :: should support a `omission` option",
+    "lodash.truncate :: should support a `separator` option",
+    "lodash.truncate :: should treat negative `length` as `0`",
+    "lodash.truncate :: should truncate string the given length",
+    "lodash.truncate :: should use a default `length` of `30`",
+    "lodash.truncate :: should work as an iteratee for methods like `_.map`",
+    "uncommon symbols :: should account for astral symbols"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

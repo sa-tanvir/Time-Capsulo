@@ -1,0 +1,23 @@
+{
+  "image": "tc-cpp",
+  "license": "BSD-3-Clause",
+  "src_globs": [
+    "double-conversion/*.cc",
+    "double-conversion/*.h"
+  ],
+  "exclude_globs": [
+    "test/**",
+    "msvc/**"
+  ],
+  "build_cmd": "find /build -name '*.o' -size 0 -delete 2>/dev/null; tc-sync-mtimes /build/.tc_md5 double-conversion test && ( [ -f /build/CMakeCache.txt ] || cmake -S /w -B /build -DCMAKE_BUILD_TYPE=None -DCMAKE_CXX_FLAGS=-O1 -DBUILD_TESTING=ON >/dev/null ) && rm -f /build/test/cctest/cctest && cmake --build /build -- -j4 2>&1 | grep -E 'error' | head -40; test -x /build/test/cctest/cctest",
+  "test_cmd": "cd /build/test/cctest && for t in $(./cctest --list | sed 's/<.*//'); do if timeout 120 ./cctest $t >/dev/null 2>&1; then echo \"TCRESULT PASS $t\"; else echo \"TCRESULT FAIL $t\"; fi; done",
+  "result_format": "regex",
+  "result_regex": "^TCRESULT (?P<status>PASS|FAIL) (?P<name>\\S+)$",
+  "pass_values": [
+    "PASS"
+  ],
+  "cache_volumes": {
+    "tc-build-double-conversion": "/build"
+  },
+  "notes": "CMake (BUILD_TESTING=ON) configured once into /build (volume), -O1 without -g. cctest aborts the process on the first failed CHECK, so test_cmd lists all tests (cctest --list) and runs each 'file/name' in its own process, giving per-test pass/fail. The cctest binary is deleted before each build so a failed compile never runs a stale binary."
+}

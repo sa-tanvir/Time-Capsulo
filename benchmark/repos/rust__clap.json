@@ -1,0 +1,26 @@
+{
+  "image": "tc-rust",
+  "license": "MIT",
+  "src_globs": [
+    "src/**/*.rs"
+  ],
+  "exclude_globs": [
+    "**/tests/**",
+    "**/benches/**",
+    "**/examples/**"
+  ],
+  "setup_cmd": "cargo fetch --locked",
+  "setup_network": true,
+  "build_cmd": "find src -name '*.rs' -exec touch {} +",
+  "test_cmd": "cargo test --lib --tests --no-fail-fast 2>&1",
+  "result_format": "cargo",
+  "env": {
+    "CARGO_TARGET_DIR": "/target"
+  },
+  "cache_volumes": {
+    "tc-cache-cargo": "/usr/local/cargo/registry",
+    "tc-target-clap": "/target"
+  },
+  "notes": "rust:1.40 (tc-rust). Default features only (suggestions, color, vec_map; yaml/wrap_help/lints off). Lib unit tests + tests/*.rs; doc-tests excluded (--lib --tests): harness cargo parser cannot parse doc-test names. Lockfile generated at setup; every dependency (incl. dev-deps regex 0.2 / version-sync 0.5 and the never-built optional clippy tree, whose manifests cargo fetch still parses) pinned to ~early-2018 versions buildable by rustc 1.40: clippy 0.0.186 (0.0.302 drags in edition-2021 crates), serde/serde_derive 1.0.27, serde_json 1.0.9, dtoa 0.4.2, itoa 0.3.4, getopts 0.2.17, num-traits 0.2.0, unicode-width 0.1.4, bitflags 1.0.1, atty 0.2.6, libc 0.2.36, vec_map 0.8.0, term_size 0.3.1, termion 1.5.1, redox_syscall 0.1.37, redox_termios 0.1.1, regex 0.2.6, regex-syntax 0.4.2, aho-corasick 0.6.4, memchr 2.0.1, thread_local 0.3.5, utf8-ranges 1.0.0, lazy_static 1.0.0, toml 0.4.5, idna 0.1.4, unicode-bidi 0.3.4, unicode-normalization 0.1.5, matches 0.1.6, itertools 0.7.6, either 1.4.0, pulldown-cmark 0.1.0, winapi 0.3.4. Exception: url 1.7.2 (Nov 2018) instead of an early-2018 1.6/1.7.0, because url <= 1.7.0 fails to compile under rustc 1.40's NLL borrow checker (E0713 in form_urlencoded.rs); it is only used by the version-sync dev-dependency. Order of the serde pins matters (serde_json, then serde, then serde_derive). Baseline: 560 tests, 559 stable; version::version_short (and occasionally version::complex_version_output) are flaky. build_cmd touches src/*.rs so cargo never reuses a stale build after restore. Reproducibility: the exact dependency versions are fixed by the shipped lockfile benchmark/lockfiles/rust__clap.Cargo.lock, which `tc.py setup` copies into the working copy; setup_cmd then only downloads them (cargo fetch --locked). `setup_cmd_generate` is the original command that produced that lockfile in Oct 2026 (it resolves unpinned dependencies against the live registry, so it is kept for provenance only).",
+  "setup_cmd_generate": "cargo generate-lockfile && cargo update -p clippy --precise 0.0.186 && cargo update -p serde_json --precise 1.0.9 && cargo update -p serde --precise 1.0.27 && cargo update -p serde_derive --precise 1.0.27 && cargo update -p dtoa --precise 0.4.2 && cargo update -p itoa --precise 0.3.4 && cargo update -p getopts --precise 0.2.17 && cargo update -p num-traits:0.2.19 --precise 0.2.0 && cargo update -p unicode-width --precise 0.1.4 && cargo update -p bitflags:1.3.2 --precise 1.0.1 && cargo update -p atty --precise 0.2.6 && cargo update -p libc --precise 0.2.36 && cargo update -p vec_map --precise 0.8.0 && cargo update -p term_size --precise 0.3.1 && cargo update -p termion --precise 1.5.1 && cargo update -p redox_syscall --precise 0.1.37 && cargo update -p redox_termios --precise 0.1.1 && cargo update -p regex --precise 0.2.6 && cargo update -p regex-syntax --precise 0.4.2 && cargo update -p aho-corasick --precise 0.6.4 && cargo update -p memchr --precise 2.0.1 && cargo update -p thread_local --precise 0.3.5 && cargo update -p utf8-ranges --precise 1.0.0 && cargo update -p lazy_static --precise 1.0.0 && cargo update -p toml --precise 0.4.5 && cargo update -p url --precise 1.7.2 && cargo update -p idna --precise 0.1.4 && cargo update -p unicode-bidi --precise 0.3.4 && cargo update -p unicode-normalization --precise 0.1.5 && cargo update -p matches --precise 0.1.6 && cargo update -p itertools:0.7.11 --precise 0.7.6 && cargo update -p either --precise 1.4.0 && cargo update -p pulldown-cmark:0.1.2 --precise 0.1.0 && cargo update -p winapi:0.3.9 --precise 0.3.4 && cargo fetch"
+}

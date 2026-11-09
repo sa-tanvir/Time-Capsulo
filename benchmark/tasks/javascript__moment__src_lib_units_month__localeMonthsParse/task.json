@@ -1,0 +1,46 @@
+{
+  "task_id": "javascript__moment__src_lib_units_month__localeMonthsParse",
+  "repo": "javascript__moment",
+  "language": "javascript",
+  "repo_url": "https://github.com/moment/moment",
+  "tag": "2.24.0",
+  "commit_sha": "96d0d6791ab495859d09a868803d31a55c917de1",
+  "release_date": "2019-01-22",
+  "license": "MIT",
+  "file": "src/lib/units/month.js",
+  "symbol": "localeMonthsParse ( monthName , format , strict )",
+  "name": "localeMonthsParse",
+  "start_line": 139,
+  "end_line": 175,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 29,
+  "ccn": 16,
+  "n_covering_tests": 12,
+  "covering_tests": [
+    "create :: matching am/pm",
+    "create :: parsing into a locale",
+    "create :: strict parsing",
+    "create :: string with format",
+    "create :: string with format no separators",
+    "getters and setters :: setters should handle garbage input",
+    "getters and setters :: setters strings",
+    "is valid :: string with bad month name",
+    "is valid :: string with spaceless format",
+    "locale inheritance :: define child locale before parent",
+    "parsing flags :: empty format array",
+    "parsing flags :: invalid month"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "ls -laR /w/src/lib >/dev/null; node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

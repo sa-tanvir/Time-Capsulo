@@ -1,0 +1,11 @@
+{
+  "image": "tc-javascript",
+  "license": "MIT",
+  "src_globs": ["lodash.js"],
+  "exclude_globs": [],
+  "setup_cmd": "sh /opt/tc/npm-install-isolated.sh 2019-07-10 qunit-extras@3.0.0 qunitjs@2.4.1 lodash@4.17.13",
+  "setup_network": true,
+  "test_cmd": "node -r /opt/tc/qunit-extras-tap.js test/test.js /w/lodash.js 2>&1",
+  "result_format": "tap",
+  "notes": "Runs the main QUnit suite (npm 'test:main') directly against lodash.js (the file the suite loads; the npm 'pretest' dist build is not needed for it). /opt/tc/qunit-extras-tap.js preloads qunit-extras and prints one TAP line per QUnit test. Only the devDependencies the suite needs are installed (qunit-extras, qunitjs, and lodash@4.17.13 as the 'stable' comparison copy). The fp suite (test/test-fp.js) tests dist/lodash.fp and is not run."
+}

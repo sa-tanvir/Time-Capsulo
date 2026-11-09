@@ -1,0 +1,31 @@
+repo_key,candidate_id,action,reason
+python__click,click/termui.py::prompt@55,skip,interactive terminal prompt: cost dominated by stdin/stdout I/O and echo; no meaningful isolated benchmark
+python__click,click/termui.py::confirm@141,skip,interactive yes/no terminal prompt: cost dominated by stdin/stdout I/O; no meaningful isolated benchmark
+python__click,click/types.py::convert@423,skip,File.convert opens files/streams: cost dominated by filesystem I/O
+python__click,click/_bashcomplete.py::add_subcommand_completions@207,add,next-ranked eligible replacement (ccn=9) for skipped prompt@55/confirm@141
+python__click,click/core.py::__init__@985,add,next-ranked eligible replacement for skipped candidates
+python__requests,requests/sessions.py::resolve_redirects@143,skip,redirect loop over live Response objects: needs real HTTP connections/adapters (network); cannot be benchmarked in isolation
+python__requests,requests/utils.py::super_len@107,skip,length probing of file objects via os.fstat/tell/seek: cost dominated by filesystem/stream I/O
+python__requests,requests/adapters.py::cert_verify@203,skip,checks CA bundle/cert paths on the filesystem (os.path.exists/isdir) and configures urllib3 connections
+python__requests,requests/sessions.py::send@617,skip,Session.send performs the actual HTTP request through adapters (network I/O)
+python__requests,requests/sessions.py::rebuild_proxies@276,skip,reads proxy settings from the process environment (get_environ_proxies/should_bypass_proxies); environment-dependent
+python__requests,requests/models.py::__init__@226,add,next-ranked eligible replacement (ccn=7; Request.__init__; task id python__requests__requests_models__Request___init__)
+python__requests,requests/utils.py::extract_zipped_paths@227,skip,filesystem access (os.path.exists / zipfile extraction to temp dir)
+python__requests,requests/models.py::iter_content@729,skip,streaming generator over Response.raw (socket/urllib3 stream I/O); no meaningful isolated benchmark
+python__requests,requests/cookies.py::cookiejar_from_dict@508,add,next-ranked eligible replacement (ccn=7)
+python__requests,requests/sessions.py::prepare_request@426,skip,reads ~/.netrc via get_netrc_auth (filesystem/environment) and depends on session state
+python__requests,requests/utils.py::parse_header_links@814,add,next-ranked eligible replacement (ccn=6)
+python__requests,requests/help.py::_implementation@26,skip,platform/interpreter introspection (sys/platform); no input-dependent workload
+python__requests,requests/utils.py::unquote_unreserved@565,add,next-ranked eligible replacement (ccn=6)
+python__requests,requests/models.py::raise_for_status@917,skip,contains no loop (static has_loop matched 'for url' inside a string literal); O(1) formatting only
+python__requests,requests/cookies.py::merge_cookies@529,add,next-ranked eligible replacement (ccn=6)
+python__click,click/termui.py::style@372,retire,fails corrected loop/recursion filter
+python__click,click/types.py::convert@267,retire,fails corrected loop/recursion filter
+python__dateutil,dateutil/parser/_parser.py::_parse_numeric_token@881,retire,fails corrected loop/recursion filter
+python__python-sortedcontainers,sortedcontainers/sortedlist.py::index@1367,retire,fails corrected loop/recursion filter
+python__requests,requests/models.py::prepare_url@355,retire,fails corrected loop/recursion filter
+python__click,click/utils.py::make_default_short_help@45,add,replacement for python__click__click_termui__style
+python__click,click/core.py::format_commands@1056,add,replacement for python__click__click_types__IntRange_convert
+python__dateutil,dateutil/rrule.py::__str__@698,add,replacement for python__dateutil__dateutil_parser__parser_parse_numeric_token
+python__python-sortedcontainers,sortedcontainers/sortedlist.py::remove@1985,add,replacement for python__python-sortedcontainers__sortedcontainers_sortedlist__SortedList_index
+python__requests,requests/hooks.py::dispatch_hook@23,add,replacement for python__requests__requests_models__prepare_url

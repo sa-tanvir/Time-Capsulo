@@ -1,0 +1,47 @@
+{
+  "task_id": "cpp__spdlog__include_spdlog_details_pattern_formatter__full_formatter_format",
+  "repo": "cpp__spdlog",
+  "language": "cpp",
+  "repo_url": "https://github.com/gabime/spdlog",
+  "tag": "v1.3.1",
+  "commit_sha": "a7148b718ea2fabb8387cb90aee9bf448da63e65",
+  "release_date": "2019-01-18",
+  "license": "MIT",
+  "file": "include/spdlog/details/pattern_formatter.h",
+  "symbol": "spdlog::details::full_formatter::format( const details :: log_msg & msg , const std :: tm & tm_time , fmt :: memory_buffer & dest)",
+  "name": "spdlog::details::full_formatter::format",
+  "start_line": 926,
+  "end_line": 1005,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 55,
+  "ccn": 5,
+  "n_covering_tests": 13,
+  "covering_tests": [
+    "global::async_error_handler",
+    "global::clone-default-formatter",
+    "global::clone-default-formatter2",
+    "global::custom_error_handler",
+    "global::daily_logger with custom calculator",
+    "global::daily_logger with dateonly calculator",
+    "global::rotating_file_logger1",
+    "global::rotating_file_logger2",
+    "global::to_file",
+    "global::to_file multi-workers",
+    "global::to_hex",
+    "global::to_hex_no_delimiter",
+    "global::to_hex_upper"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(find /w/include/spdlog -name '*.h' | sort | xargs cat {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -fno-access-control -DSPDLOG_ENABLE_MESSAGE_COUNTER -I/w/include {task}/bench/driver.cpp -o /build/drv/$H.tmp -pthread && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

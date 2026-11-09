@@ -1,0 +1,4 @@
+The driver bundles `/w/src/moment.js` plus `src/lib/units/month.js` with the repo's rollup and calls `localeMonthsParse.call(locale, monthName, format, strict)` (the `Locale#monthsParse` method).
+Locales: 'en' and five driver-defined ones (French-like names with periods, the same with `monthsParseExact`, a Russian-like locale with preset parse regexes and format/standalone names, names with periods inside, exact-mode names that are prefixes of each other). Locales keep their lazily built caches across calls (cold at the start of check mode).
+Workload: exact names in random case, names with trailing text, truncated names and junk, with formats 'MMMM'/'MMM'/'M'/undefined and strict true/false/undefined; S also has hand-written cases from the tests.
+Per-call work is bounded (12 months), so S/M/L scale the call count: 2,000 / 20,000 / 200,000.

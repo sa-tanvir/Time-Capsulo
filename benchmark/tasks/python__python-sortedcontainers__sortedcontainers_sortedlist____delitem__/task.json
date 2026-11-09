@@ -1,0 +1,52 @@
+{
+  "task_id": "python__python-sortedcontainers__sortedcontainers_sortedlist____delitem__",
+  "repo": "python__python-sortedcontainers",
+  "language": "python",
+  "repo_url": "https://github.com/grantjenks/python-sortedcontainers",
+  "tag": "v2.1.0",
+  "commit_sha": "e05634b0f0b85deae2e796a8acc1cad5961819eb",
+  "release_date": "2018-11-22",
+  "license": "Apache-2.0",
+  "file": "sortedcontainers/sortedlist.py",
+  "symbol": "__delitem__( self , index )",
+  "name": "__delitem__",
+  "start_line": 760,
+  "end_line": 809,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 22,
+  "ccn": 10,
+  "n_covering_tests": 18,
+  "covering_tests": [
+    "sortedcontainers.sorteddict::sortedcontainers.sorteddict._view_delitem",
+    "sortedcontainers.sortedset::sortedcontainers.sortedset.SortedSet.__delitem__",
+    "tests.benchmark_splits_fill::tests.benchmark_splits_fill",
+    "tests.test_coverage_sorteddict::test_iloc",
+    "tests.test_coverage_sortedkeylist_modulo::test_delitem",
+    "tests.test_coverage_sortedkeylist_modulo::test_delitem_slice",
+    "tests.test_coverage_sortedkeylist_negate::test_delitem",
+    "tests.test_coverage_sortedkeylist_negate::test_delitem_slice",
+    "tests.test_coverage_sortedkeylist_negate::test_gte",
+    "tests.test_coverage_sortedkeylist_negate::test_lte",
+    "tests.test_coverage_sortedlist::test_delitem",
+    "tests.test_coverage_sortedlist::test_delitem_slice",
+    "tests.test_coverage_sortedset::test_delitem",
+    "tests.test_coverage_sortedset::test_delitem_key",
+    "tests.test_coverage_sortedset::test_delitem_slice",
+    "tests.test_stress_sortedkeylist::test_stress",
+    "tests.test_stress_sortedlist::test_stress",
+    "tests.test_stress_sortedset::test_stress"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

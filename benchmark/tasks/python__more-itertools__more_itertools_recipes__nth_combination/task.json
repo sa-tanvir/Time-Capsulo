@@ -1,0 +1,38 @@
+{
+  "task_id": "python__more-itertools__more_itertools_recipes__nth_combination",
+  "repo": "python__more-itertools",
+  "language": "python",
+  "repo_url": "https://github.com/more-itertools/more-itertools",
+  "tag": "v7.2.0",
+  "commit_sha": "99884cbd7f784478d7305ffdfb1a39f08d49fd4c",
+  "release_date": "2019-07-20",
+  "license": "MIT",
+  "file": "more_itertools/recipes.py",
+  "symbol": "nth_combination( iterable , r , index )",
+  "name": "nth_combination",
+  "start_line": 524,
+  "end_line": 557,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 21,
+  "ccn": 9,
+  "n_covering_tests": 4,
+  "covering_tests": [
+    "more_itertools.tests.test_recipes.NthCombinationTests::test_basic",
+    "more_itertools.tests.test_recipes.NthCombinationTests::test_invalid_index",
+    "more_itertools.tests.test_recipes.NthCombinationTests::test_invalid_r",
+    "more_itertools.tests.test_recipes.NthCombinationTests::test_long"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

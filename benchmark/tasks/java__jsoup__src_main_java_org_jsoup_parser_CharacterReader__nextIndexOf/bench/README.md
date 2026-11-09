@@ -1,0 +1,2 @@
+Groups: 'H text' creates a CharacterReader; 'Q delta seq' advances the reader delta characters (via advance()) and calls the package-private nextIndexOf(CharSequence). Texts use alphabets of 3 or 8 letters (one group is aaab repeated) to provoke partial matches; sequences are present, absent, longer than the rest, or single characters. Texts are at most 24,000 chars so they sit entirely in the reader's buffer. Readers are rebuilt outside the timed region.
+TCBench.java is in the target's package, compiled against target/classes into /tmp/tcb; /w is never modified.

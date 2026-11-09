@@ -1,0 +1,52 @@
+{
+  "task_id": "cpp__pugixml__src_pugixml__utf8_decoder_process",
+  "repo": "cpp__pugixml",
+  "language": "cpp",
+  "repo_url": "https://github.com/zeux/pugixml",
+  "tag": "v1.10",
+  "commit_sha": "3c59df555b93a7650ae0056da34bacde93f4ef8f",
+  "release_date": "2019-09-12",
+  "license": "MIT",
+  "file": "src/pugixml.cpp",
+  "symbol": "utf8_decoder::process( const uint8_t * data , size_t size , typename Traits :: value_type result , Traits)",
+  "name": "utf8_decoder::process",
+  "start_line": 1623,
+  "end_line": 1683,
+  "end_suffix": "\n",
+  "indent": "\t\t",
+  "nloc": 50,
+  "ccn": 18,
+  "n_covering_tests": 18,
+  "covering_tests": [
+    "as_wide_empty",
+    "as_wide_invalid",
+    "as_wide_string",
+    "as_wide_valid_astral",
+    "as_wide_valid_basic",
+    "document_contents_preserve",
+    "document_contents_preserve_latin1",
+    "document_save_bom",
+    "document_save_declaration_latin1",
+    "document_save_stream_wide",
+    "parse_bom_fragment",
+    "write_encoding_huge",
+    "write_encoding_huge_invalid",
+    "write_encodings",
+    "write_print_stream_encode",
+    "write_print_stream_wide",
+    "write_throw_encoding",
+    "write_unicode_invalid_utf8"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(cat /w/src/pugixml.cpp /w/src/pugixml.hpp /w/src/pugiconfig.hpp {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -I/w/src {task}/bench/driver.cpp -o /build/drv/$H.tmp && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}

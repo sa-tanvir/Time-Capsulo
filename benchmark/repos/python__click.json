@@ -1,0 +1,10 @@
+{
+  "image": "tc-python37",
+  "license": "BSD-3-Clause",
+  "src_globs": ["click/*.py"],
+  "exclude_globs": ["click/_winconsole.py"],
+  "env": {"LANG": "C.UTF-8", "LC_ALL": "C.UTF-8"},
+  "test_cmd": "python -m pytest -q --timeout=60 -p no:cacheprovider --junitxml=/out/junit.xml tests",
+  "result_format": "junit",
+  "notes": "No extra test deps needed (colorama is optional/Windows-only). UTF-8 locale set because click 7 refuses ASCII locales on Python 3."
+}

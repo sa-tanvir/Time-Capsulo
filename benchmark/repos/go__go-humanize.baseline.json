@@ -1,0 +1,43 @@
+{
+  "repo": "go__go-humanize",
+  "n_tests": 31,
+  "passing": [
+    "github.com/dustin/go-humanize/english::TestOxfordWordSeries",
+    "github.com/dustin/go-humanize/english::TestPlural",
+    "github.com/dustin/go-humanize/english::TestPluralWord",
+    "github.com/dustin/go-humanize/english::TestWordSeries",
+    "github.com/dustin/go-humanize::TestBigByteErrors",
+    "github.com/dustin/go-humanize::TestBigByteParsing",
+    "github.com/dustin/go-humanize::TestBigBytes",
+    "github.com/dustin/go-humanize::TestBigCommafs",
+    "github.com/dustin/go-humanize::TestBigCommas",
+    "github.com/dustin/go-humanize::TestByteErrors",
+    "github.com/dustin/go-humanize::TestByteParsing",
+    "github.com/dustin/go-humanize::TestBytes",
+    "github.com/dustin/go-humanize::TestCommafWithDigits",
+    "github.com/dustin/go-humanize::TestCommafs",
+    "github.com/dustin/go-humanize::TestCommas",
+    "github.com/dustin/go-humanize::TestCustomRelTime",
+    "github.com/dustin/go-humanize::TestFormatFloat",
+    "github.com/dustin/go-humanize::TestFtoa",
+    "github.com/dustin/go-humanize::TestFtoaWithDigits",
+    "github.com/dustin/go-humanize::TestFuture",
+    "github.com/dustin/go-humanize::TestOrdinals",
+    "github.com/dustin/go-humanize::TestParseVeryBig",
+    "github.com/dustin/go-humanize::TestPast",
+    "github.com/dustin/go-humanize::TestRange",
+    "github.com/dustin/go-humanize::TestReltimeOffbyone",
+    "github.com/dustin/go-humanize::TestSI",
+    "github.com/dustin/go-humanize::TestSIWithDigits",
+    "github.com/dustin/go-humanize::TestStripTrailingDigits",
+    "github.com/dustin/go-humanize::TestVeryBigBytes",
+    "github.com/dustin/go-humanize::TestVeryBigCommas",
+    "github.com/dustin/go-humanize::TestVeryVeryBigBytes"
+  ],
+  "flaky": [],
+  "failing_at_baseline": [],
+  "secs": [
+    4.5,
+    4.0
+  ]
+}

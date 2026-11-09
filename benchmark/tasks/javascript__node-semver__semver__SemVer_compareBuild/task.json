@@ -1,0 +1,36 @@
+{
+  "task_id": "javascript__node-semver__semver__SemVer_compareBuild",
+  "repo": "javascript__node-semver",
+  "language": "javascript",
+  "repo_url": "https://github.com/npm/node-semver",
+  "tag": "v6.3.0",
+  "commit_sha": "0eeceecfba490d136eb3ccae3a8dc118a28565a0",
+  "release_date": "2019-07-24",
+  "license": "ISC",
+  "file": "semver.js",
+  "symbol": "SemVer.prototype.compareBuild ( other )",
+  "name": "SemVer.prototype.compareBuild",
+  "start_line": 437,
+  "end_line": 459,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 22,
+  "ccn": 8,
+  "n_covering_tests": 2,
+  "covering_tests": [
+    "test/index.js :: compareBuild",
+    "test/index.js :: sorting"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

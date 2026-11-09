@@ -1,0 +1,38 @@
+{
+  "task_id": "python__requests__requests_utils__unquote_unreserved",
+  "repo": "python__requests",
+  "language": "python",
+  "repo_url": "https://github.com/psf/requests",
+  "tag": "v2.22.0",
+  "commit_sha": "aeda65bbe57ac5edbcc2d80db85d010befb7d419",
+  "release_date": "2019-05-16",
+  "license": "Apache-2.0",
+  "file": "requests/utils.py",
+  "symbol": "unquote_unreserved( uri )",
+  "name": "unquote_unreserved",
+  "start_line": 565,
+  "end_line": 586,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 16,
+  "ccn": 6,
+  "n_covering_tests": 4,
+  "covering_tests": [
+    "tests.test_utils::test_requote_uri_with_unquoted_percents[http://example.com/fiz?buz=%25ppicture-http://example.com/fiz?buz=%25ppicture]",
+    "tests.test_utils::test_requote_uri_with_unquoted_percents[http://example.com/fiz?buz=%ppicture-http://example.com/fiz?buz=%25ppicture]",
+    "tests.test_utils::test_unquote_unreserved[http://example.com/?a=%---http://example.com/?a=%--]",
+    "tests.test_utils::test_unquote_unreserved[http://example.com/?a=%300-http://example.com/?a=00]"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w:/w/.deps python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

@@ -1,0 +1,19 @@
+{
+  "image": "tc-java",
+  "license": "Apache-2.0",
+  "src_globs": [
+    "src/main/java/**/*.java"
+  ],
+  "exclude_globs": [
+    "**/src/test/**"
+  ],
+  "setup_cmd": "mvn -B -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true -Dmaven.test.failure.ignore=true test",
+  "setup_network": true,
+  "test_cmd": "rm -rf target/surefire-reports; mvn -B -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true -Dmaven.test.failure.ignore=true -Dsurefire.timeout=900 -DtrimStackTrace=true test 2>&1 | tail -n 200; cp target/surefire-reports/TEST-*.xml /out/ 2>/dev/null; ls /out/TEST-*.xml >/dev/null 2>&1",
+  "result_format": "junit",
+  "cache_volumes": {
+    "tc-cache-m2": "/root/.m2"
+  },
+  "notes": "Image tc-java is maven:3.6-amazoncorretto-8 (no arm64 build of maven:3.6-jdk-8-slim). Compile errors: the test command exits non-zero when no surefire reports were produced (so the harness labels the answer compile_error, not failed_tests).",
+  "scan_test_cmd": "rm -rf target/surefire-reports; mvn -B -o -q -Drat.skip=true -Djacoco.skip=true -Danimal.sniffer.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dspotbugs.skip=true -Dfindbugs.skip=true -Dpmd.skip=true -Dcpd.skip=true -Djapicmp.skip=true -Dclirr.skip=true -Denforcer.skip=true -Dmaven.source.skip=true -Dbuildnumber.skip=true -Dmdep.analyze.skip=true -Dmaven.test.failure.ignore=true -Dsurefire.timeout=900 -DtrimStackTrace=true -DfailIfNoTests=false -Dtest='{stem}*Test' test 2>&1 | tail -n 200; cp target/surefire-reports/TEST-*.xml /out/ 2>/dev/null; ls /out/TEST-*.xml >/dev/null 2>&1"
+}

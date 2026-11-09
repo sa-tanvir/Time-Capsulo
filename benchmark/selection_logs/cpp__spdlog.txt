@@ -1,0 +1,10 @@
+include/spdlog/details/file_helper.h::spdlog::details::file_helper::split_by_extension@125
+include/spdlog/details/fmt_helper.h::spdlog::details::fmt_helper::pad2@54
+include/spdlog/details/fmt_helper.h::spdlog::details::fmt_helper::pad_uint@77
+include/spdlog/details/pattern_formatter.h::spdlog::details::scoped_pad::scoped_pad@56
+include/spdlog/details/pattern_formatter.h::spdlog::details::name_formatter::format@137
+include/spdlog/details/pattern_formatter.h::spdlog::details::level_formatter::format@160
+include/spdlog/details/pattern_formatter.h::spdlog::details::full_formatter::format@926
+include/spdlog/details/pattern_formatter.h::spdlog::pattern_formatter::handle_flag_@1083
+include/spdlog/details/pattern_formatter.h::spdlog::pattern_formatter::handle_padspec_@1256
+include/spdlog/details/pattern_formatter.h::spdlog::pattern_formatter::compile_pattern_@1296

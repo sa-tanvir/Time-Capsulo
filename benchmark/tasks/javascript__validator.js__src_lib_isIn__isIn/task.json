@@ -1,0 +1,36 @@
+{
+  "task_id": "javascript__validator.js__src_lib_isIn__isIn",
+  "repo": "javascript__validator.js",
+  "language": "javascript",
+  "repo_url": "https://github.com/validatorjs/validator.js",
+  "tag": "12.1.0",
+  "commit_sha": "0d204da14f640fd2a8bf1874b6995128ff28409d",
+  "release_date": "2019-11-21",
+  "license": "MIT",
+  "file": "src/lib/isIn.js",
+  "symbol": "isIn ( str , options )",
+  "name": "isIn",
+  "start_line": 4,
+  "end_line": 23,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 18,
+  "ccn": 7,
+  "n_covering_tests": 2,
+  "covering_tests": [
+    "Validators::should validate a string that is in another object",
+    "Validators::should validate a string that is in another string or array"
+  ],
+  "bench": {
+    "driver": "bench/driver.js",
+    "build_cmd": null,
+    "run_cmd": "ls -la /w/src/lib >/dev/null; node {task}/bench/driver.js {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

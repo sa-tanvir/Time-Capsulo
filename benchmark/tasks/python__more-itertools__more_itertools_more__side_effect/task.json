@@ -1,0 +1,38 @@
+{
+  "task_id": "python__more-itertools__more_itertools_more__side_effect",
+  "repo": "python__more-itertools",
+  "language": "python",
+  "repo_url": "https://github.com/more-itertools/more-itertools",
+  "tag": "v7.2.0",
+  "commit_sha": "99884cbd7f784478d7305ffdfb1a39f08d49fd4c",
+  "release_date": "2019-07-20",
+  "license": "MIT",
+  "file": "more_itertools/more.py",
+  "symbol": "side_effect( func , iterable , chunk_size = None , before = None , after = None )",
+  "name": "side_effect",
+  "start_line": 961,
+  "end_line": 1019,
+  "end_suffix": "\n",
+  "indent": "",
+  "nloc": 15,
+  "ccn": 7,
+  "n_covering_tests": 4,
+  "covering_tests": [
+    "more_itertools.tests.test_more.SideEffectTests::test_before_after",
+    "more_itertools.tests.test_more.SideEffectTests::test_before_fails",
+    "more_itertools.tests.test_more.SideEffectTests::test_chunked",
+    "more_itertools.tests.test_more.SideEffectTests::test_individual"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-09"
+}

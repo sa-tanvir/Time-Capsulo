@@ -1,0 +1,36 @@
+{
+  "task_id": "cpp__json__include_nlohmann_json__diff",
+  "repo": "cpp__json",
+  "language": "cpp",
+  "repo_url": "https://github.com/nlohmann/json",
+  "tag": "v3.7.2",
+  "commit_sha": "411158d896c86e210b8fdea47a41522d4408380b",
+  "release_date": "2019-11-11",
+  "license": "MIT",
+  "file": "include/nlohmann/json.hpp",
+  "symbol": "nlohmann::basic_json::diff( const basic_json & source , const basic_json & target , const std :: string & path = \"\")",
+  "name": "nlohmann::basic_json::diff",
+  "start_line": 7865,
+  "end_line": 7987,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 92,
+  "ccn": 12,
+  "n_covering_tests": 2,
+  "covering_tests": [
+    "test-json_patch::JSON patch",
+    "test-regression::regression tests"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(cat $(find /w/include -name '*.hpp' | sort) {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -fno-access-control -I/w/include {task}/bench/driver.cpp -o /build/drv/$H.tmp && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-21"
+}

@@ -1,0 +1,3 @@
+Each line: open char, close char, escaped queue text. Texts are generated nested groups with words, quoted parts, backslash escapes and trailing text; some are truncated (unbalanced, exercising the exception path) or start with a non-open character. S/M/L: 30 / 2,000 / 100,000 chars, nesting depth up to 3/12/40.
+The driver creates a TokenQueue per case, calls chompBalanced and records the result or the exception message plus the remainder. In time mode queues are rebuilt outside the timed region.
+TCBench.java is in the target's package, compiled against target/classes into /tmp/tcb; /w is never modified.

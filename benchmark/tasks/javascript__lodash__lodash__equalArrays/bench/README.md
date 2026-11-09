@@ -1,0 +1,4 @@
+`equalArrays` is internal; the driver reaches it through the public `_.isEqual`, `_.isEqualWith` (customizer that compares strings case-insensitively) and `_.isMatch` from `require('/w/lodash.js')`.
+Workload (built before timing from a seed): long arrays of mixed primitives (incl. NaN, -0, null), arrays of small arrays, Float64Arrays, sparse vs dense arrays with differing non-index props, self-containing arrays, and - in unordered mode, 50x smaller since that is pairwise - Sets vs shuffled Sets, Maps with entries in different order, and `_.isMatch` of a shuffled 70% subset; each as an equal copy, with one changed element, or with a different length.
+Array length 500-1,000 / 5,000-10,000 / 50,000-100,000 (S/M/L), 60 cases each; S adds 0-3 element cases of every kind.
+The digest covers each boolean result (both argument orders for `_.isEqual`) and a customizer call log.

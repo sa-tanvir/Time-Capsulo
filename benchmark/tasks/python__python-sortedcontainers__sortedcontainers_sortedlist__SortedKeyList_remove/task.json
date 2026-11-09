@@ -1,0 +1,47 @@
+{
+  "task_id": "python__python-sortedcontainers__sortedcontainers_sortedlist__SortedKeyList_remove",
+  "repo": "python__python-sortedcontainers",
+  "language": "python",
+  "repo_url": "https://github.com/grantjenks/python-sortedcontainers",
+  "tag": "v2.1.0",
+  "commit_sha": "e05634b0f0b85deae2e796a8acc1cad5961819eb",
+  "release_date": "2018-11-22",
+  "license": "Apache-2.0",
+  "file": "sortedcontainers/sortedlist.py",
+  "symbol": "remove( self , value )",
+  "name": "remove",
+  "start_line": 1985,
+  "end_line": 2035,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 26,
+  "ccn": 8,
+  "n_covering_tests": 13,
+  "covering_tests": [
+    "tests.test_coverage_sortedkeylist_modulo::test_delete",
+    "tests.test_coverage_sortedkeylist_modulo::test_remove",
+    "tests.test_coverage_sortedkeylist_modulo::test_remove_valueerror1",
+    "tests.test_coverage_sortedkeylist_modulo::test_remove_valueerror2",
+    "tests.test_coverage_sortedkeylist_modulo::test_remove_valueerror3",
+    "tests.test_coverage_sortedkeylist_modulo::test_remove_valueerror4",
+    "tests.test_coverage_sortedkeylist_modulo::test_remove_valueerror5",
+    "tests.test_coverage_sortedkeylist_negate::test_delete",
+    "tests.test_coverage_sortedkeylist_negate::test_remove",
+    "tests.test_coverage_sortedkeylist_negate::test_remove_valueerror1",
+    "tests.test_coverage_sortedkeylist_negate::test_remove_valueerror2",
+    "tests.test_coverage_sortedkeylist_negate::test_remove_valueerror3",
+    "tests.test_stress_sortedkeylist::test_stress"
+  ],
+  "bench": {
+    "driver": "bench/driver.py",
+    "build_cmd": null,
+    "run_cmd": "PYTHONPATH=/w python {task}/bench/driver.py {size} {repeat} {mode}",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-10"
+}

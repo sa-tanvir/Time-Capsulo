@@ -1,0 +1,38 @@
+{
+  "task_id": "cpp__spdlog__include_spdlog_details_pattern_formatter__level_formatter_format",
+  "repo": "cpp__spdlog",
+  "language": "cpp",
+  "repo_url": "https://github.com/gabime/spdlog",
+  "tag": "v1.3.1",
+  "commit_sha": "a7148b718ea2fabb8387cb90aee9bf448da63e65",
+  "release_date": "2019-01-18",
+  "license": "MIT",
+  "file": "include/spdlog/details/pattern_formatter.h",
+  "symbol": "spdlog::details::level_formatter::format( const details :: log_msg & msg , const std :: tm & , fmt :: memory_buffer & dest)",
+  "name": "spdlog::details::level_formatter::format",
+  "start_line": 160,
+  "end_line": 172,
+  "end_suffix": "\n",
+  "indent": "    ",
+  "nloc": 13,
+  "ccn": 2,
+  "n_covering_tests": 4,
+  "covering_tests": [
+    "global::level",
+    "global::level_center_padded",
+    "global::level_left_padded",
+    "global::level_right_padded"
+  ],
+  "bench": {
+    "driver": "bench/driver.cpp",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "build_cmd": "rm -f /tmp/tcdrv; H=$(find /w/include/spdlog -name '*.h' | sort | xargs cat {task}/bench/driver.cpp | md5sum | cut -c1-16) && mkdir -p /build/drv && { [ -x /build/drv/$H ] || { g++ -O2 -std=c++11 -fno-access-control -DSPDLOG_ENABLE_MESSAGE_COUNTER -I/w/include {task}/bench/driver.cpp -o /build/drv/$H.tmp -pthread && mv /build/drv/$H.tmp /build/drv/$H; }; } && cp /build/drv/$H /tmp/tcdrv",
+    "run_cmd": "TC_TASK={task} /tmp/tcdrv {size} {repeat} {mode}"
+  },
+  "spec_status": "checked-v1.0",
+  "created": "2026-10-20"
+}
